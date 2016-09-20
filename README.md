@@ -1,3 +1,7 @@
-# School
+# IOS 스쿨 강의 정리
 
-강의중 사용하는 브랜치 입니다.
+FastCampus IOS 강의를 위해 만들어진 Git 입니다.
+
+- School : 강의 중 내용을 정리 합니다.
+- Homework : 과제 내용을 정리 합니다.
+- Study : 개인 공부를 정리 합니다.
