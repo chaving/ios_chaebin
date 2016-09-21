@@ -60,7 +60,7 @@
 }
 
 - (id)jumpTo:(Wizard *)someCharater where:(NSString *)where{
-
+    
     // 전사는 마법사의 뒤로 이동 합니다.
     NSLog(@"\n%@는 %@의 %@로(으로) 이동 합니다.", self.nickName, someCharater.nickName, where);
     
