@@ -42,6 +42,7 @@ ios 스쿨 임채빈
 
 @end
 ```
+
 ``` objectivec
 [Cat where:@"거실"];
 ```
@@ -59,6 +60,7 @@ ios 스쿨 임채빈
 
 @end
 ```
+
 ``` objectivec
 [Dog where:@"거실"];
 ```
