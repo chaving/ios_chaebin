@@ -28,6 +28,12 @@
  */
 
 - (id)joinTheBand:(id)person;
+
+/**
+ * 네이버 밴드를 이용한 메서드 구축
+ * @param person 밴드는 찾아온 사람
+ */
+
 - (id)findTheBand:(id)person;
 - (id)chating;
 - (id)notice;

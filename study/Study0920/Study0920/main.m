@@ -14,11 +14,13 @@ int main(int argc, const char * argv[]) {
     
     Band *fastCampus = [[Band alloc] init];
     
+    //프로퍼티 Set
     fastCampus.name = @"패스트캠퍼스";
     fastCampus.established = @"16.09.05";
     fastCampus.master = @"채빈";
     fastCampus.hobby = @"ios 개발";
     
+    //프로퍼티 Get
     NSLog(@"%@ 밴드는 %@에 만들어졌다.", fastCampus.name, fastCampus.established);
     NSLog(@"%@의 마스터는 %@ 다.", fastCampus.name, fastCampus.master);
     
