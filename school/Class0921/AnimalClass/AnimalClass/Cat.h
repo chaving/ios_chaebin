@@ -18,5 +18,6 @@
 
 - (id)meetTo:(Dog *)someOne where:(NSString *)where;
 - (id)jumpTo:(Dog *)someOne point:(NSString *)point;
+- (id)meetTo:(NSString *)where;
 
 @end

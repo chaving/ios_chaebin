@@ -109,7 +109,7 @@ int main(int argc, const char * argv[]) {
     CGFloat someFloatValue = 101.5;
     // 실수 타입 - 32bit 실수 타입 ( %f )
     // 실수 타입 - 64bit 실수 타입 ( %lf )
-    NSLog(@"Float value : %lf", someFloatValue);
+    NSLog(@"Float value : %f", someFloatValue);
     
     // 불리언 - 0과 1만 표현하면 되기 때문에 굳이 64bit 를 사용하지 않음
     NSLog(@"Boolean value : %d", YES);
@@ -137,7 +137,7 @@ int main(int argc, const char * argv[]) {
     NSLog(@"사이에 탭\t을 넣어 봅시다.");
     
     // 응용
-    NSLog(@"jack의 체력은 %lu\t 마력은 %lu이고, \n물리공격력은 %ld, 마법공격력은 %ld 입니다.",
+    NSLog(@"jack의 체력은 %lu\t 마력은 %lu이고, \n물리공격력은 %-5ld, 마법공격력은 %ld 입니다.",
           jack.healthPoint, jack.manaPoint, jack. physicalDamage, jack.magicalDamage);
     
     

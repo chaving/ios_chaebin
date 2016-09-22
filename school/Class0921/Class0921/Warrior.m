@@ -12,8 +12,9 @@
 
 @implementation Warrior
 
-
+///전사가 마법사에게 물리공격을 하는 것
 - (id)physicalAttackTo:(Wizard *)someCharacter{
+    
     
     // 전사의 물리 공격력 만큼 마법사의 체력을 감소시킵니다.
     
@@ -39,7 +40,7 @@
     
 }
 
-
+///전사가 마법사에게 어떠한 스킬을 사용하는 것
 - (id)useTo:(Wizard *)someCharacter skill:(Skill *)skill{
     
     // 전사가 마법사에게 스킬을 사용합니다.
@@ -59,6 +60,7 @@
     
 }
 
+///전사가 마법사의 어떠한 위치로 이동 하는 것
 - (id)jumpTo:(Wizard *)someCharater where:(NSString *)where{
     
     // 전사는 마법사의 뒤로 이동 합니다.
