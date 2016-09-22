@@ -46,12 +46,12 @@ int main(int argc, const char * argv[]) {
      
      %5.2f = 전체 5자리를 보여주고 소수점 밑으로는 2자리만 왼쪽정렬된 모습으로 보여줌
      %-10.3f = 전체 10자리를 보여주고 소수점 밑으로는 3자리만 오른쪽 정렬된 모습으로 보여줌
-     %10.0f
+     %10.0f = 전체 10자리를 보여주고 소수점 밑으로는 표시안함 그리고 왼쪽 정렬으로 보여줌
      %.3f
      이것들이 무엇을 뜻하는지 알아보기
      */
     
-    NSInteger someNum = 123456;
+    NSInteger someNum = 123;
     CGFloat someNumber = 1.12345;
     CGFloat someFloat = 11234.1236789;
     CGFloat otherFloat = .12;
