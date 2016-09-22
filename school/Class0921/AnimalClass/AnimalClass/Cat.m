@@ -28,4 +28,12 @@
 }
 
 
+- (id)meetTo:(NSString *)where{
+    
+    //고양이가 강아지를 거실 코너에서 만났습니다.
+    NSLog(@"고양이가 강아지를 %@에서 만났습니다.", where);
+    
+    return nil;
+}
+
 @end
