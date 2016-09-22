@@ -42,10 +42,12 @@ ios 스쿨 임채빈
 
 @end
 ```
+
 ``` objectivec
 [Cat where:@"거실"];
 ```
 >고양이가 강아지를 거실에서 만났습니다.
+
 ``` objectivec
 @implementation Dog
 
@@ -59,6 +61,7 @@ ios 스쿨 임채빈
 
 @end
 ```
+
 ``` objectivec
 [Dog where:@"거실"];
 ```
