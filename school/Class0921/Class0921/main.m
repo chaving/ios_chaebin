@@ -91,13 +91,15 @@ int main(int argc, const char * argv[]) {
     id anyObject = @100;
     
     // 값이 들어 왔기 때문에 에러가 남
-    // id someoneObject = 100;
+    //id someoneObject = 100;
     
     
     
     
     
     // 형식 지정자 - Format specifier
+    
+    
     // 정수 타입 - 부호가 있는 32bit 정수타입 --> 10진수 ( %d )
     // 정수 타입 - 부호가 있는 64bit 정수타입 --> 10진수 ( %ld )
     NSLog(@"Physical Power : %ld", jack.physicalDamage);
@@ -135,6 +137,9 @@ int main(int argc, const char * argv[]) {
     
     // 탭을 표현하고 싶어요 - \t
     NSLog(@"사이에 탭\t을 넣어 봅시다.");
+    
+    NSLog(@"사이에 \"따움표\\을 넣어 봅시다.");
+    
     
     // 응용
     NSLog(@"jack의 체력은 %lu\t 마력은 %lu이고, \n물리공격력은 %-5ld, 마법공격력은 %ld 입니다.",
