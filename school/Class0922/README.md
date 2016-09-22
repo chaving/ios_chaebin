@@ -54,7 +54,7 @@ UniversityStudent 라는 클래스로 chul 이라는 객체를 만드는데 Stud
 <br>
 ####상속을 이용한 메서드 표현
 
-> 상속 관계도
+> 상속 관계도<br>
 > Person --> Student --> UniversityStudent<br>
 > Person --> Teacher
 
