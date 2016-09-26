@@ -87,7 +87,12 @@ int main(int argc, const char * argv[]) {
     [troll appear:troll where:@"풀숲"];
     
     [jack appear:jack where:@"나무 뒤"];
+    
+    
+    
     [jack physicalAttackTo:troll];
+    
+    
     [jack skillTo:@"휠윈드" who:troll];
     
     [troll missAttack:jack];

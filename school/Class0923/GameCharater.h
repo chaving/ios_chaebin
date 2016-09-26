@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+//@class Skill;
+
 
 @interface GameCharater : NSObject
 
