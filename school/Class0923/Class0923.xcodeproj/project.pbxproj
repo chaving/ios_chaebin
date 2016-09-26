@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F05126A1D98A5D200A4C3A7 /* Skill.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0512691D98A5D200A4C3A7 /* Skill.m */; };
 		5F0BD9421D94BCC000FFDEFC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0BD9411D94BCC000FFDEFC /* main.m */; };
 		5F0BD9501D94BE4000FFDEFC /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0BD94F1D94BE4000FFDEFC /* Person.m */; };
 		5F0BD9531D94C54D00FFDEFC /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0BD9521D94C54D00FFDEFC /* Student.m */; };
@@ -30,6 +31,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5F0512681D98A5D200A4C3A7 /* Skill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Skill.h; path = Class0923/Skill.h; sourceTree = "<group>"; };
+		5F0512691D98A5D200A4C3A7 /* Skill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Skill.m; path = Class0923/Skill.m; sourceTree = "<group>"; };
 		5F0BD93E1D94BCC000FFDEFC /* Class0923 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Class0923; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F0BD9411D94BCC000FFDEFC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5F0BD94E1D94BE4000FFDEFC /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
@@ -109,6 +112,8 @@
 				5F0BD9881D94EBD100FFDEFC /* Healer.m */,
 				5F0BD98A1D94F52D00FFDEFC /* Monster.h */,
 				5F0BD98B1D94F52D00FFDEFC /* Monster.m */,
+				5F0512681D98A5D200A4C3A7 /* Skill.h */,
+				5F0512691D98A5D200A4C3A7 /* Skill.m */,
 			);
 			name = GameOfWar;
 			path = ..;
@@ -171,6 +176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F05126A1D98A5D200A4C3A7 /* Skill.m in Sources */,
 				5F0BD9501D94BE4000FFDEFC /* Person.m in Sources */,
 				5F0BD9801D94EB9E00FFDEFC /* GameCharater.m in Sources */,
 				5F0BD9831D94EBB600FFDEFC /* Warrior.m in Sources */,
@@ -305,6 +311,7 @@
 				5F0BD9471D94BCC000FFDEFC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

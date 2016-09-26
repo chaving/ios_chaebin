@@ -68,11 +68,11 @@
 			children = (
 				5F8483EA1D90C355006DF659 /* main.m */,
 				5F8483F11D90C3B6006DF659 /* Person.h */,
+				5F8483F21D90C3B6006DF659 /* Person.m */,
 				5F8483F41D90C3E7006DF659 /* Warrior.h */,
 				5F8483F71D90C440006DF659 /* Wizard.h */,
 				5F8483F81D90C440006DF659 /* Wizard.m */,
 				5F8483F51D90C3E7006DF659 /* Warrior.m */,
-				5F8483F21D90C3B6006DF659 /* Person.m */,
 			);
 			path = ClassEX;
 			sourceTree = "<group>";
@@ -264,6 +264,7 @@
 				5F8483F01D90C355006DF659 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

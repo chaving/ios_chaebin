@@ -28,7 +28,7 @@
     NSLog(@"%@가(이) %@를(을) 물리공격 했다!", self.nickName, someone.nickName);
     
     //원래의 체력
-    NSInteger originHealth = self.healthPoint;
+    NSInteger originHealth = someone.healthPoint;
     
     //공격했을때의 누구의 체력 변화
     someone.healthPoint = originHealth - self.physicalDamage;
@@ -68,6 +68,15 @@
 // 스킬을 써서 얼마의 데미지가 들어가는 메서드
 - (id)skillTo:(NSString *)skillName who:(GameCharater *)someone damage:(NSInteger)damage{
 
+    //어떤 클래스 누가 어떤 스킬을 누구에게 사용했다.
+    NSLog(@"%@ %@ 가(이) %@ 을 %@ 에게 사용했다.", self.className, self.nickName, skillName, someone.nickName);
+    
+    //원래의 체력
+    NSInteger originHealth = someone.healthPoint;
+    
+    //공격했을때의 누구의 체력 변화
+    someone.healthPoint = originHealth - self.physicalDamage;
+    
     
     
     return nil;
