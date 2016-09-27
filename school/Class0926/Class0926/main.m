@@ -71,7 +71,7 @@ int main(int argc, const char * argv[]) {
     //원의 넓이 / 둘레
     DimensionalShapes *circle = [[DimensionalShapes alloc] init];
     
-    circle.radius = 4;
+    circle.radius = 5;
     
     CGFloat circleArea = [circle circleArea:circle.radius];
     CGFloat circlePerimeter = [circle circlePerimeter:circle.radius];
@@ -148,10 +148,11 @@ int main(int argc, const char * argv[]) {
     NSLog(@"%lf mb", mbResult);
     
     //시간을 초단위로
-    CGFloat hourResult = [ToolBox convertSec:1 minute:21 sec:30];
-    NSLog(@"1시간 21분 30초는 %f 초 이다.", hourResult);
+    NSInteger secResult = [ToolBox convertSec:1 minute:21 sec:30];
+    NSLog(@"1시간 21분 30초는 %ld 초 이다.", secResult);
     
-    
+    //초 단위를 시간 단위로
+    [ToolBox convertHour:5900];
     
     
     // 조건문 사용하기 =====================================================

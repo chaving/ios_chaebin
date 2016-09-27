@@ -61,14 +61,19 @@
 }
 
 // 시간 단위 표기를 초 표기로
-+ (CGFloat)convertSec:(CGFloat)hour minute:(CGFloat)minute sec:(CGFloat)sec
++ (NSInteger)convertSec:(NSInteger)hour minute:(NSInteger)minute sec:(NSInteger)sec
 {
     return (hour * 3600) + (minute * 60) + sec;
 }
 
-+ (CGFloat)convertHour:(CGFloat)sec
++ (void)convertHour:(NSInteger)sec
 {
-    return 0;
+    NSInteger returnHour = sec/3600;
+    NSInteger returnMinute = (sec%3600)/60;
+    NSInteger returnSec = (sec%3600)%60;
+    
+    NSLog(@"%ld시 %ld분 %ld초", returnHour, returnMinute, returnSec);
+    
 }
 
 

@@ -23,7 +23,7 @@
 // 정사각형의 넓이
 - (CGFloat)squareArea:(NSInteger)oneSide
 {
-    return oneSide + oneSide;
+    return oneSide * oneSide;
 }
 
 // 정사각형의 둘레
@@ -56,17 +56,17 @@
     return 2 * 3.14 * radius;
 }
 
-// 삼각혁의 넓이
+// 삼각혁의 넓이 ***
 + (CGFloat)triangleArea:(NSInteger)height bottomSide:(NSInteger)bottomeSide
 {
-    return (1/2) * height * bottomeSide;
+    return 0.5 * height * bottomeSide;
 }
 
 
-// 사다리꼴의 넓이
+// 사다리꼴의 넓이 ***
 + (CGFloat)trapezoidArea:(NSInteger)topSide height:(NSInteger)height bottomSide:(NSInteger)bottomSide
 {
-    return (1/2) * height * (topSide + bottomSide );
+    return 0.5 * height * (topSide + bottomSide );
 }
 
 // 정 부피
@@ -93,10 +93,10 @@
     return (4/3) * 3.14 * radius * radius * radius;
 }
 
-// 원뿔의 부피
+// 원뿔의 부피 ***
 + (CGFloat)cone:(NSInteger)radius height:(NSInteger)height
 {
-    return (1/3) * 3.14 * radius * radius * height;
+    return (1.0/3.0) * 3.14 * radius * radius * height;
 }
 
 
