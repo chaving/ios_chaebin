@@ -27,8 +27,8 @@
 + (CGFloat)convertMb:(CGFloat)kb;
 
 //시간 변환
-+ (CGFloat)convertSec:(CGFloat)hour minute:(CGFloat)minute sec:(CGFloat)sec;
-+ (CGFloat)convertHour:(CGFloat)sec;
++ (NSInteger)convertSec:(NSInteger)hour minute:(NSInteger)minute sec:(NSInteger)sec;
++ (void)convertHour:(NSInteger)sec;
 
 
 
