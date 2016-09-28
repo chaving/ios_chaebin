@@ -23,4 +23,7 @@ typedef struct character
 @property character info;
 @property Animal *animal;
 
+- (void)setHeight:(CGFloat)height weight:(CGFloat)weight;
+- (character)personInfo;
+
 @end

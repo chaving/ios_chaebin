@@ -33,7 +33,6 @@
     // 다른 버전
     character tempInfo = {height,weight};
     self.info = tempInfo;
-    self.animal.health = 1;
 
 }
 

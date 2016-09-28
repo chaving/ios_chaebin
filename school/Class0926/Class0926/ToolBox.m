@@ -73,7 +73,6 @@
     NSInteger returnSec = (sec%3600)%60;
     
     NSLog(@"%ld시 %ld분 %ld초", returnHour, returnMinute, returnSec);
-    
 }
 
 

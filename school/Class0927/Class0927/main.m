@@ -7,14 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Person.h"
 
 int main(int argc, const char * argv[]) {
-    @autoreleasepool {
-        
-        NSString *stringLiteral = @"리터럴";
-        NSString *stringLiteral = [NSString stringWithFormat:@"리터럴"];
-        
-        
-    }
+    
+    Person *me = [[Person alloc]init];
+    
+    [me setHeight:170.3 weight:63.3];
+    
+    character temp = me.info;
+    
+    NSLog(@"%lf %lf",temp.height,temp.weight);
+    
     return 0;
 }
