@@ -20,8 +20,8 @@ int main(int argc, const char * argv[]) {
     [list01 addLastValue:3];
     [list01 addLastValue:4];
     [list01 addLastValue:5];
-    [list01 addFirstValue:6];
-    [list01 addLastValue:7];
+//    [list01 addFirstValue:6];
+    [list01 addLastValue:6];
     
 //    [list01 addLastIndexNode:5 newValue:3];
     
@@ -32,13 +32,13 @@ int main(int argc, const char * argv[]) {
     [list01 printAllNode];
     NSLog(@"-------------------------------------");
     
-    [list01 removeFirst];
+//    [list01 removeFirst];
     
     [list01 printAllNode];
     
     NSLog(@"-------------------------------------");
     
-    [list01 removeFirst];
+//    [list01 removeFirst];
     
     [list01 printAllNode];
     
@@ -48,7 +48,7 @@ int main(int argc, const char * argv[]) {
     
     NSLog(@"-------------------------------------");
     
-    [list01 addFirstValue:6];
+//    [list01 addFirstValue:6];
     
     [list01 printAllNode];
     

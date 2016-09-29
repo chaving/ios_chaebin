@@ -166,6 +166,12 @@
 - (void)countAllNode:(Node *)allNode{
     
     // 카운터의 초기값 설정
+    if (allNode == self.header) {
+        
+        self.nodeCounter = 0;
+        
+    }
+    
     NSInteger countNode = self.nodeCounter;
     
     // 노드가 마지막위치 일때
@@ -203,12 +209,12 @@
     // 다음에 값이 없을때 값을 출력하고 끝
     if (node.nextNode == nil) {
     
-        NSLog(@"%ld", node.value);
+        NSLog(@"%ld / index : %ld", node.value, node.index);
         
     // 값을 출력했는데 다음에 또 값이 있으면 다음으로!
     }else{
         
-        NSLog(@"%ld", node.value);
+        NSLog(@"%ld / index : %ld", node.value, node.index);
         
         [self printNode:node.nextNode];
     
