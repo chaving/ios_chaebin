@@ -20,7 +20,7 @@ int main(int argc, const char * argv[]) {
     [list01 addLastValue:3];
     [list01 addLastValue:4];
     [list01 addLastValue:5];
-//    [list01 addFirstValue:6];
+    [list01 addFirstValue:8];
     [list01 addLastValue:6];
     
 //    [list01 addLastIndexNode:5 newValue:3];
