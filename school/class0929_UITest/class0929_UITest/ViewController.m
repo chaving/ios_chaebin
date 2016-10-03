@@ -74,39 +74,44 @@
 //    [secondView addSubview:thirdView];
     
     
+    //--------------------------------------------------------------------------
     
     
+//    // 파란 사각형
+//    UIView *firstView = [[UIView alloc] initWithFrame:
+//                         CGRectMake(50, self.view.bounds.size.height/2-100, self.view.bounds.size.width-100, 20)];
+//    
+//    firstView.backgroundColor = [UIColor blueColor];
+//    
+//    [self.view addSubview:firstView];
+//    
+//    // 빨강 사각형
+//    UIView *secondView = [[UIView alloc] initWithFrame:CGRectMake(0, 20, 20, 160)];
+//    
+//    secondView.backgroundColor = [UIColor redColor];
+//    
+//    [firstView addSubview:secondView];
+//    
+//    
+//    // 초록 사각형
+//    UIView *thirdView = [[UIView alloc] initWithFrame:CGRectMake(firstView.bounds.size.width-20, 0, 20, 160)];
+//    
+//    thirdView.backgroundColor = [UIColor greenColor];
+//    
+//    [secondView addSubview:thirdView];
+//    
+//    
+//    // 노랑 사각형
+//    UIView *fourthView = [[UIView alloc] initWithFrame:CGRectMake(0, 160, self.view.bounds.size.width-100, 20)];
+//    
+//    fourthView.backgroundColor = [UIColor yellowColor];
+//    
+//    [secondView addSubview:fourthView];
+
     
-    // 파란 사각형
-    UIView *firstView = [[UIView alloc] initWithFrame:
-                         CGRectMake(50, self.view.bounds.size.height/2-100, self.view.bounds.size.width-100, 20)];
     
-    firstView.backgroundColor = [UIColor blueColor];
+    //--------------------------------------------------------------------------
     
-    [self.view addSubview:firstView];
-    
-    // 빨강 사각형
-    UIView *secondView = [[UIView alloc] initWithFrame:CGRectMake(0, 20, 20, 160)];
-    
-    secondView.backgroundColor = [UIColor redColor];
-    
-    [firstView addSubview:secondView];
-    
-    
-    // 초록 사각형
-    UIView *thirdView = [[UIView alloc] initWithFrame:CGRectMake(firstView.bounds.size.width-20, 0, 20, 160)];
-    
-    thirdView.backgroundColor = [UIColor greenColor];
-    
-    [secondView addSubview:thirdView];
-    
-    
-    // 노랑 사각형
-    UIView *fourthView = [[UIView alloc] initWithFrame:CGRectMake(0, 160, self.view.bounds.size.width-100, 20)];
-    
-    fourthView.backgroundColor = [UIColor yellowColor];
-    
-    [secondView addSubview:fourthView];
     
     
 //    UIView *secondView = [[UIView alloc] initWithFrame:
@@ -134,6 +139,63 @@
 //    fourthView.backgroundColor = [UIColor yellowColor];
 //    
 //    [self.view addSubview:fourthView];
+    
+    
+    
+    NSInteger fullWidth = self.view.frame.size.width;
+    NSInteger fullHeight = self.view.frame.size.height;
+    
+    UIView *centerPointer = [[UIView alloc] initWithFrame:CGRectMake(fullWidth/2, fullHeight/2, 0, 0)];
+    
+    [self.view addSubview:centerPointer];
+    
+    
+    UIView *firstView = [[UIView alloc] initWithFrame:CGRectMake(-(fullWidth-100)/2, -100, fullWidth-100, 20)];
+    
+    firstView.backgroundColor = [UIColor blueColor];
+    
+    [centerPointer addSubview:firstView];
+    
+    
+    
+    UIView *secocdView = [[UIView alloc] initWithFrame:CGRectMake(-(fullWidth-100)/2, 80, fullWidth-100, 20)];
+    
+    secocdView.backgroundColor = [UIColor yellowColor];
+    
+    [centerPointer addSubview:secocdView];
+    
+    
+    
+    UIView *thirdView = [[UIView alloc] initWithFrame:CGRectMake(-(fullWidth-100)/2, -80, 20, 160)];
+    
+    thirdView.backgroundColor = [UIColor greenColor];
+    
+    [centerPointer addSubview:thirdView];
+    
+    
+    
+    
+    UIView *fourthView = [[UIView alloc] initWithFrame:CGRectMake((fullWidth-100)/2-20, -80, 20, 160)];
+    
+    fourthView.backgroundColor = [UIColor redColor];
+    
+    [centerPointer addSubview:fourthView];
+    
+    
+    
+    
+    UIView *circleView = [[UIView alloc] initWithFrame:CGRectMake(-50, -50, 100, 100)];
+    
+    circleView.backgroundColor = [UIColor grayColor];
+    
+    circleView.layer.cornerRadius = 50;
+    
+    [centerPointer addSubview:circleView];
+    
+    
+    
+    
+    
     
     
     
