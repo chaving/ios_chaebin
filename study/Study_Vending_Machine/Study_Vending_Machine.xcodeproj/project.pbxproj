@@ -13,10 +13,10 @@
 		5F1E6DFE1DA228810032AE34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F1E6DFC1DA228810032AE34 /* Main.storyboard */; };
 		5F1E6E001DA228810032AE34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F1E6DFF1DA228810032AE34 /* Assets.xcassets */; };
 		5F1E6E031DA228810032AE34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F1E6E011DA228810032AE34 /* LaunchScreen.storyboard */; };
-		5F1E6E0E1DA22B3E0032AE34 /* yeezy_boost02.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F1E6E0A1DA22B3E0032AE34 /* yeezy_boost02.png */; };
-		5F1E6E0F1DA22B3E0032AE34 /* yeezy_boost01.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F1E6E0B1DA22B3E0032AE34 /* yeezy_boost01.png */; };
-		5F1E6E101DA22B3E0032AE34 /* nikeyeezy02.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F1E6E0C1DA22B3E0032AE34 /* nikeyeezy02.png */; };
-		5F1E6E111DA22B3E0032AE34 /* nikeyeezy01.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F1E6E0D1DA22B3E0032AE34 /* nikeyeezy01.png */; };
+		5FA203F61DA3696000A2B237 /* yeezy_boost02.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FA203F21DA3696000A2B237 /* yeezy_boost02.png */; };
+		5FA203F71DA3696000A2B237 /* yeezy_boost01.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FA203F31DA3696000A2B237 /* yeezy_boost01.png */; };
+		5FA203F81DA3696000A2B237 /* nikeyeezy02.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FA203F41DA3696000A2B237 /* nikeyeezy02.png */; };
+		5FA203F91DA3696000A2B237 /* nikeyeezy01.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FA203F51DA3696000A2B237 /* nikeyeezy01.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,10 +30,10 @@
 		5F1E6DFF1DA228810032AE34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5F1E6E021DA228810032AE34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5F1E6E041DA228810032AE34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5F1E6E0A1DA22B3E0032AE34 /* yeezy_boost02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yeezy_boost02.png; sourceTree = "<group>"; };
-		5F1E6E0B1DA22B3E0032AE34 /* yeezy_boost01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yeezy_boost01.png; sourceTree = "<group>"; };
-		5F1E6E0C1DA22B3E0032AE34 /* nikeyeezy02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nikeyeezy02.png; sourceTree = "<group>"; };
-		5F1E6E0D1DA22B3E0032AE34 /* nikeyeezy01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nikeyeezy01.png; sourceTree = "<group>"; };
+		5FA203F21DA3696000A2B237 /* yeezy_boost02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yeezy_boost02.png; sourceTree = "<group>"; };
+		5FA203F31DA3696000A2B237 /* yeezy_boost01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yeezy_boost01.png; sourceTree = "<group>"; };
+		5FA203F41DA3696000A2B237 /* nikeyeezy02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nikeyeezy02.png; sourceTree = "<group>"; };
+		5FA203F51DA3696000A2B237 /* nikeyeezy01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nikeyeezy01.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,10 +91,10 @@
 		5F1E6E121DA22B4D0032AE34 /* productimg */ = {
 			isa = PBXGroup;
 			children = (
-				5F1E6E0A1DA22B3E0032AE34 /* yeezy_boost02.png */,
-				5F1E6E0B1DA22B3E0032AE34 /* yeezy_boost01.png */,
-				5F1E6E0C1DA22B3E0032AE34 /* nikeyeezy02.png */,
-				5F1E6E0D1DA22B3E0032AE34 /* nikeyeezy01.png */,
+				5FA203F21DA3696000A2B237 /* yeezy_boost02.png */,
+				5FA203F31DA3696000A2B237 /* yeezy_boost01.png */,
+				5FA203F41DA3696000A2B237 /* nikeyeezy02.png */,
+				5FA203F51DA3696000A2B237 /* nikeyeezy01.png */,
 			);
 			name = productimg;
 			sourceTree = "<group>";
@@ -159,11 +159,11 @@
 			files = (
 				5F1E6E031DA228810032AE34 /* LaunchScreen.storyboard in Resources */,
 				5F1E6E001DA228810032AE34 /* Assets.xcassets in Resources */,
-				5F1E6E0E1DA22B3E0032AE34 /* yeezy_boost02.png in Resources */,
-				5F1E6E101DA22B3E0032AE34 /* nikeyeezy02.png in Resources */,
+				5FA203F61DA3696000A2B237 /* yeezy_boost02.png in Resources */,
+				5FA203F81DA3696000A2B237 /* nikeyeezy02.png in Resources */,
 				5F1E6DFE1DA228810032AE34 /* Main.storyboard in Resources */,
-				5F1E6E0F1DA22B3E0032AE34 /* yeezy_boost01.png in Resources */,
-				5F1E6E111DA22B3E0032AE34 /* nikeyeezy01.png in Resources */,
+				5FA203F71DA3696000A2B237 /* yeezy_boost01.png in Resources */,
+				5FA203F91DA3696000A2B237 /* nikeyeezy01.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +333,7 @@
 				5F1E6E091DA228810032AE34 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
