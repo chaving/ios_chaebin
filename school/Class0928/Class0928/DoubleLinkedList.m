@@ -49,7 +49,7 @@
         newNode.prevNode = self.header;
         newNode.nextNode = self.header.nextNode;
         
-//        self.header.nextNode.prevNode = newNode;
+        self.header.nextNode.prevNode = newNode;
         self.header.nextNode = newNode;
         
     }
