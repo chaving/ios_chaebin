@@ -168,7 +168,10 @@
     for(NSInteger i = 0; i < [self.inputCostData count]; i++){
         
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [btn addTarget:self action:@selector(onTouchupInsideCoin:) forControlEvents:UIControlEventTouchUpInside];
+        [btn addTarget:self
+                action:@selector(onTouchupInsideCoin:)
+      forControlEvents:UIControlEventTouchUpInside];
+        
         btn.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin|  UIViewAutoresizingFlexibleHeight;
         [btn setTitle:[self.inputCostData objectAtIndex:i] forState:UIControlStateNormal];
         [btn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
