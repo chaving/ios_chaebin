@@ -13,6 +13,7 @@
 		5F1E6DFE1DA228810032AE34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F1E6DFC1DA228810032AE34 /* Main.storyboard */; };
 		5F1E6E001DA228810032AE34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F1E6DFF1DA228810032AE34 /* Assets.xcassets */; };
 		5F1E6E031DA228810032AE34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F1E6E011DA228810032AE34 /* LaunchScreen.storyboard */; };
+		5F1FC09C1DAC7A8F008BC856 /* ProductView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F1FC09B1DAC7A8F008BC856 /* ProductView.m */; };
 		5FA203F61DA3696000A2B237 /* yeezy_boost02.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FA203F21DA3696000A2B237 /* yeezy_boost02.png */; };
 		5FA203F71DA3696000A2B237 /* yeezy_boost01.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FA203F31DA3696000A2B237 /* yeezy_boost01.png */; };
 		5FA203F81DA3696000A2B237 /* nikeyeezy02.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FA203F41DA3696000A2B237 /* nikeyeezy02.png */; };
@@ -30,6 +31,8 @@
 		5F1E6DFF1DA228810032AE34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5F1E6E021DA228810032AE34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5F1E6E041DA228810032AE34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5F1FC09A1DAC7A8F008BC856 /* ProductView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductView.h; sourceTree = "<group>"; };
+		5F1FC09B1DAC7A8F008BC856 /* ProductView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductView.m; sourceTree = "<group>"; };
 		5FA203F21DA3696000A2B237 /* yeezy_boost02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yeezy_boost02.png; sourceTree = "<group>"; };
 		5FA203F31DA3696000A2B237 /* yeezy_boost01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yeezy_boost01.png; sourceTree = "<group>"; };
 		5FA203F41DA3696000A2B237 /* nikeyeezy02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nikeyeezy02.png; sourceTree = "<group>"; };
@@ -70,6 +73,8 @@
 				5F1E6DF71DA228810032AE34 /* AppDelegate.m */,
 				5F1E6DF91DA228810032AE34 /* ViewController.h */,
 				5F1E6DFA1DA228810032AE34 /* ViewController.m */,
+				5F1FC09A1DAC7A8F008BC856 /* ProductView.h */,
+				5F1FC09B1DAC7A8F008BC856 /* ProductView.m */,
 				5F1E6DFC1DA228810032AE34 /* Main.storyboard */,
 				5F1E6DFF1DA228810032AE34 /* Assets.xcassets */,
 				5F1E6E011DA228810032AE34 /* LaunchScreen.storyboard */,
@@ -174,6 +179,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F1FC09C1DAC7A8F008BC856 /* ProductView.m in Sources */,
 				5F1E6DFB1DA228810032AE34 /* ViewController.m in Sources */,
 				5F1E6DF81DA228810032AE34 /* AppDelegate.m in Sources */,
 				5F1E6DF51DA228810032AE34 /* main.m in Sources */,

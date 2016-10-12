@@ -7,12 +7,14 @@
 //
 
 #import "ViewController.h"
+#import "ProductView.h"
 
 @interface ViewController ()
+<ProductViewDelegate>
 
 // 필요한 데이터
 @property (nonatomic)NSArray *productImageName;
-@property (nonatomic)NSDictionary *productInfoData;
+@property (nonatomic)NSArray *productInfoData;
 @property (nonatomic)NSArray *inputCostData;
 
 // 만들어야 할 뷰
@@ -25,6 +27,7 @@
 
 @property (nonatomic,weak)UILabel *displayLB;
 @property (nonatomic)NSMutableArray *inputBtns;
+@property (nonatomic,weak)UIButton *returnBtn;
 
 @property (nonatomic ,assign)NSInteger remindMoney;
 
@@ -34,12 +37,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    self.productImageName = @[@"nikeyeezy01",@"nikeyeezy02",@"yeezy_boost01",@"yeezy_boost02"];
-    self.productInfoData = @{@"Nike Yeezy 1":@"234000",
-                             @"Yeezy Boost 1":@"199000",
-                             @"Nike Yeezy 2":@"234000",
-                             @"Yeezy Boost 2":@"199000"};
+    
+    self.productInfoData = @[@{@"title":@"nekeyeezy01",@"cost":@"234000",@"imagename":@"nikeyeezy01"},
+                             @{@"title":@"yeezy_boost01",@"cost":@"199000",@"imagename":@"yeezy_boost01"},
+                             @{@"title":@"nekeyeezy02",@"cost":@"234000",@"imagename":@"nikeyeezy02"},
+                             @{@"title":@"yeezy_boost02",@"cost":@"199000",@"imagename":@"yeezy_boost02"}];
+    
     self.inputCostData = @[@"100000",@"50000",@"10000",@"5000"];
     
     self.productViews = [[NSMutableArray alloc]init];
@@ -60,15 +63,16 @@
     
     self.productContainer = productContainer;
     
-    NSArray *productInfoKey = self.productInfoData.allKeys;
+//    NSArray *productInfoKey = self.productInfoData.allKeys;
     
     // Product UI View
     for(NSInteger i = 0; i < 4; i++){
     
         // Product View
-        UIView *productView = [[UIView alloc]init];
+        ProductView *productView = [[ProductView alloc]initWithData:self.productInfoData[i]];
         productView.backgroundColor = [UIColor whiteColor];
         productView.tag = i;
+        productView.delegate = self;
         
         productView.layer.borderColor = [UIColor colorWithRed:225.f/255.f green:225.f/255.f blue:225.f/255.f alpha:1].CGColor;
         productView .layer.borderWidth = 1.0;
@@ -76,55 +80,9 @@
         [self.productContainer addSubview:productView];
         [self.productViews addObject:productView];
         
-        
-        // Product Image
-//        UIImageView *img = [[UIImageView alloc]init];
-//        img.frame = CGRectMake(0, 0, productView.frame.size.width, 200 - 50);
-//        img.contentMode = UIViewContentModeScaleAspectFit;
-//        img.image = [UIImage imageNamed:[self.productImageName objectAtIndex:i]];
-//        
-//        [productView addSubview:img];
-        
-        
-        UIImageView *img = [[UIImageView alloc] init];
-        img.frame = CGRectMake(0, 0, productView.frame.size.width/0.7, 215 - 50);
-        img.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
-        img.contentMode = UIViewContentModeScaleAspectFit; // autoresizingMask랑 contentMode 가 같이있으면 됨.. 뭐지
-//        img.backgroundColor = [UIColor blackColor];
-        img.image = [UIImage imageNamed:[self.productImageName objectAtIndex:i]];
-        [productView addSubview:img];
-        
-        
-        // Product Info - Name
-        UILabel *productName = [[UILabel alloc]init];
-        productName.frame = CGRectMake(0, 200-50, productView.frame.size.width, 20);
-        productName.text = [productInfoKey objectAtIndex:i];
-        productName.font = [UIFont systemFontOfSize:14];
-        productName.textAlignment = NSTextAlignmentCenter;
-        productName.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-        
-        [productView addSubview:productName];
-        
-        // Product Info - Cost
-        UILabel *productCost = [[UILabel alloc]init];
-        productCost.frame = CGRectMake(0, 200 - 30, productView.frame.size.width, 30);
-        productCost.text = [self.productInfoData objectForKey:[productInfoKey objectAtIndex:i]];
-        productCost.font = [UIFont boldSystemFontOfSize:16];
-        productCost.textAlignment = NSTextAlignmentCenter;
-        productCost.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-        
-        [productView addSubview:productCost];
-        
-        // Product View BTN ------
-        
-        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        btn.frame = CGRectMake(0, 0, productView.frame.size.width, productView.frame.size.height);
-        [btn addTarget:self action:@selector(onTouchupInsideItem:) forControlEvents:UIControlEventTouchUpInside];
-        btn.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        btn.tag = i;
-        [productView addSubview:btn];
-        
-        // -----------------------
+//        productView.imgName = self.productImageName[i];
+//        productView.itemTitle = productInfoKey[i];
+//        productView.itemCost = [self.productInfoData objectForKey:productInfoKey[i]];
         
     }
     
@@ -145,14 +103,25 @@
     [displayView addSubview:displayLB];
     self.displayLB = displayLB;
     
-    UIButton *returnCostBtn = [[UIButton alloc]init];
-    returnCostBtn.frame = CGRectMake(0, 0, 40, 40);
+    
+    // 반환버튼 --------------------------------------------------------------
+    
+    UIButton *returnCostBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [returnCostBtn setTitle:@"반환" forState:UIControlStateNormal];
+//    [returnCostBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     returnCostBtn.backgroundColor = [UIColor orangeColor];
-    [returnCostBtn addTarget:self action:@selector(onTouchupReturnMoney:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [returnCostBtn addTarget:self
+                      action:@selector(onTouchupReturnMoney:)
+            forControlEvents:UIControlEventTouchUpInside];
+    
     returnCostBtn.layer.cornerRadius = 20.0;
     
     [displayLB addSubview:returnCostBtn];
+    
+    self.returnBtn = returnCostBtn;
+    
+    // ---------------------------------------------------------------------
     
     
     
@@ -227,6 +196,8 @@
     
     self.displayLB.frame = CGRectMake(15, 10, self.displayView.frame.size.width-30, self.displayView.frame.size.height-20);
     
+    self.returnBtn.frame = CGRectMake(0, self.displayLB.frame.size.height/2-20, 40, 40);
+    
     // Product Input View
     self.costInputView.frame = CGRectMake(20, baseViewOffSetY, self.view.frame.size.width-40,45);
     CGFloat btnWidth = self.costInputView.frame.size.width/[self.inputBtns count] - 10;
@@ -250,28 +221,26 @@
     self.remindMoney += costNum.integerValue;
     self.displayLB.text = [NSString stringWithFormat:@"잔액 : %ld 원", _remindMoney];
     
-    NSLog(@"버튼 클릭");
 }
 
 
 // 아이템 버튼 클릭시 액션
-- (void)onTouchupInsideItem:(UIButton *)sender
-{
+
+- (void)didSelectedProductView:(ProductView *)productView{
+
     // 현재 클릭된 버튼의 금액
-    NSInteger selectedTag = sender.tag;
-    NSArray *dataKeys = self.productInfoData.allKeys;
     
-    NSString *dataKey = [dataKeys objectAtIndex:selectedTag];
-    NSString *costStr = [self.productInfoData objectForKey:dataKey];
+    NSString *title = [productView getTitle];
+    NSInteger costStr = [productView getCost];
     
-    if (self.remindMoney >= costStr.integerValue){
-    
-        self.remindMoney -= costStr.integerValue;
+    if (self.remindMoney >= costStr){
+        
+        self.remindMoney -= costStr;
         self.displayLB.text = [NSString stringWithFormat:@"잔액 : %ld 원", _remindMoney];
         
         UIAlertController *alertController =
         [UIAlertController alertControllerWithTitle:@"빙고"
-                                            message:[NSString stringWithFormat:@"%@ 가 나왔습니다.", dataKey]
+                                            message:[NSString stringWithFormat:@"%@ 가 나왔습니다.", title]
                                      preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction *okBtn = [UIAlertAction actionWithTitle:@"확인" style:UIAlertActionStyleCancel handler:nil];
@@ -279,11 +248,11 @@
         [alertController addAction:okBtn];
         [self presentViewController:alertController animated:YES completion:nil];
         
-    
+        
     }else{
-    
+        
         // 잔액이 부족 합니다.
-        NSInteger changeMoney = costStr.integerValue - self.remindMoney;
+        NSInteger changeMoney = costStr - self.remindMoney;
         
         UIAlertController *alertController =
         [UIAlertController alertControllerWithTitle:@"실패"
@@ -296,19 +265,20 @@
         [self presentViewController:alertController animated:YES completion:nil];
         
     }
-    
+
 }
 
-- (void)onTouchupReturnMoney:(UIButton *)sender
-{
+
+
+- (void)onTouchupReturnMoney:(UIButton *)sender{
+
     
+    NSLog(@"test");
     // 현재 디스플레이의 가격
     NSInteger returnCost = self.remindMoney;
+//    NSLog(@"FDS");
     
     // 디스플레이 뷰에 넣기
-    
-//    self.displayLB.text = [NSString stringWithFormat:@"%ld 가 반환 되었습니다.", returnCost];
-    
     UIAlertController *alertController =
     [UIAlertController alertControllerWithTitle:@"반환"
                                         message:[NSString stringWithFormat:@"%ld 가 반환 되었습니다.", returnCost]
@@ -330,6 +300,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 
 @end
