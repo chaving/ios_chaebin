@@ -117,7 +117,7 @@
     
     returnCostBtn.layer.cornerRadius = 20.0;
     
-    [displayLB addSubview:returnCostBtn];
+    [displayView addSubview:returnCostBtn];
     
     self.returnBtn = returnCostBtn;
     
@@ -196,7 +196,7 @@
     
     self.displayLB.frame = CGRectMake(15, 10, self.displayView.frame.size.width-30, self.displayView.frame.size.height-20);
     
-    self.returnBtn.frame = CGRectMake(0, self.displayLB.frame.size.height/2-20, 40, 40);
+    self.returnBtn.frame = CGRectMake(15, (fullHeight - 45 - 440 - 50)/2-20, 40, 40);
     
     // Product Input View
     self.costInputView.frame = CGRectMake(20, baseViewOffSetY, self.view.frame.size.width-40,45);
@@ -213,7 +213,6 @@
 - (void)onTouchupInsideCoin:(UIButton *)sender
 {
     
-    // 현재 클릭된 버튼의 가격
     NSInteger selectedTag = sender.tag;
     NSString *costNum = [self.inputCostData objectAtIndex:selectedTag];
     
@@ -272,13 +271,11 @@
 
 - (void)onTouchupReturnMoney:(UIButton *)sender{
 
-    
     NSLog(@"test");
     // 현재 디스플레이의 가격
     NSInteger returnCost = self.remindMoney;
-//    NSLog(@"FDS");
     
-    // 디스플레이 뷰에 넣기
+    // 디스플레이에서 빼기
     UIAlertController *alertController =
     [UIAlertController alertControllerWithTitle:@"반환"
                                         message:[NSString stringWithFormat:@"%ld 가 반환 되었습니다.", returnCost]
@@ -289,7 +286,7 @@
     [alertController addAction:okBtn];
     [self presentViewController:alertController animated:YES completion:nil];
     
-    self.remindMoney = 0;
+    self.remindMoney -= returnCost;
     self.displayLB.text = [NSString stringWithFormat:@"잔액 : %ld 원", _remindMoney];
     
 }

@@ -20,4 +20,8 @@
 
 + (void)game369:(NSInteger)i;
 
+
++ (NSString *)integerFactorization:(NSInteger)someNum;
+
+
 @end

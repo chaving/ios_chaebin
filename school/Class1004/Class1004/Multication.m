@@ -146,6 +146,59 @@
 
 
 
++ (NSString *)integerFactorization:(NSInteger)someNum{
+    
+    NSString *resultNum = [[NSString alloc]init];
+    
+    if (someNum == 1) {
+        return nil;
+    }
+    
+    NSInteger saveNum = someNum;
+    
+    NSMutableArray *saveNumArray = [[NSMutableArray alloc]init];
+    
+    for (NSInteger i = 2; i <= saveNum; i += 1) {
+        
+        for (NSInteger j = 2; j <= saveNum; j += 1) {
+            
+            if (someNum % j == 0) {
+                
+//                NSLog(@"%ld", j);
+                
+                [saveNumArray addObject:[NSString stringWithFormat:@"%ld", j]];
+                
+                someNum = someNum / j;
+                
+                break;
+            }
+            
+        }
+        
+        if (someNum == 1) {
+            
+            break;
+            
+        }
+        
+    }
+    
+    
+    
+    for (NSString *arrayNumber in saveNumArray) {
+        
+        [resultNum stringByAppendingString:arrayNumber];
+        
+        NSLog(@"%@", arrayNumber);
+        
+    }
+    
+    
+    
+    return resultNum;
+    
+}
+
 
 
 

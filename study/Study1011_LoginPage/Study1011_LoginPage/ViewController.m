@@ -25,6 +25,8 @@
     CGFloat containerWidth = self.view.frame.size.width - 40;
     CGFloat containerHeight = self.view.frame.size.height - 40;
     
+    
+    
     // Container View --------------------------------------------------------------
     
     UIView *containerView = [[UIView alloc]init];
@@ -71,7 +73,7 @@
     
     UIView *loginContentLayer = [[UIView alloc]init];
     
-    loginContentLayer.frame = CGRectMake(40, containerHeight/2-145, containerWidth-80, 290);
+    loginContentLayer.frame = CGRectMake(40, containerHeight/2-165, containerWidth-80, 290);
 //    loginContentLayer.backgroundColor = [UIColor grayColor];
     
     [contentLayer addSubview:loginContentLayer];
@@ -153,6 +155,7 @@
     self.passwordField.delegate=self;
     self.passwordField.placeholder = @"비밀번호";
     self.passwordField.secureTextEntry = YES;
+    self.passwordField.clearsOnBeginEditing = YES;
     self.passwordField.clearButtonMode = YES;
     
     [textFieldLayer addSubview:self.passwordField];
@@ -176,6 +179,12 @@
     [joinBtn setTitle:@"Join Us" forState:UIControlStateNormal];
     joinBtn.titleLabel.font = [UIFont boldSystemFontOfSize:14];
     
+    joinBtn.layer.shadowColor = [UIColor colorWithRed:68.f/255.f green:68.f/255.f blue:68.f/255.f alpha:1.0].CGColor;
+    joinBtn.layer.shadowOpacity = 1.0;
+    joinBtn.layer.shadowRadius = 0;
+    joinBtn.layer.shadowOffset = CGSizeMake(2.0f, 2.0f);
+    joinBtn.layer.masksToBounds = NO;
+    
     [btnLayer addSubview:joinBtn];
     
     
@@ -191,13 +200,20 @@
     [btnLayer addSubview:loginBtn];
     
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)];
+    
+    [self.view addGestureRecognizer:tap];
+    
+    
 }
 
+
+// 텍스트 필드에서 리턴값 적용시 이벤트
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     
     BOOL onOff;
-    
-    if ([textField.placeholder isEqualToString:@"아이디"]) {
+    // textField == self.loginField
+    if (textField == self.loginField) {
         
         [textField resignFirstResponder];
         [self.passwordField becomeFirstResponder];
@@ -223,7 +239,7 @@
     return onOff;
 }
 
-
+// 텍스트 필드 선택시 스크롤업
 - (void)textFieldDidBeginEditing:(UITextField *)textField{
     
     NSInteger startEditing = 0;
@@ -245,8 +261,39 @@
     
 }
 
+-(void)dismissKeyboard:(UITapGestureRecognizer *)sender {
+    [self.loginField resignFirstResponder];
+    [self.passwordField resignFirstResponder];
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.4];
+    
+    CGRect rect = self.contentLayerView.frame;
+    rect.origin.y = 0;
+    self.contentLayerView.frame = rect;
+    
+    [UIView commitAnimations];
+}
 
 
+
+
+// 텍스트 필드 글자수 제한
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+
+    NSInteger maxChar = 16;
+    
+    NSString *replacedString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    
+    NSInteger len = [replacedString length];
+    
+    if( len <= maxChar ){
+        return YES;
+    }
+    
+    return NO;
+
+}
 
 
 - (void)didReceiveMemoryWarning {
