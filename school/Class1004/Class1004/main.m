@@ -106,7 +106,9 @@ int main(int argc, const char * argv[]) {
     NSLog(@"%@",[DataEX playTimeData:@"심쿵해" data:aoalbum]);
     
     
+//    Multication *test = [[Multication alloc]init];
     
+    NSLog(@"%@",[Multication integerFactorization:128]);
     
     
     return 0;
