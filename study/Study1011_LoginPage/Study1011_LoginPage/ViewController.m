@@ -12,7 +12,7 @@
 
 @property UITextField *loginField;
 @property UITextField *passwordField;
-@property UIScrollView *scrollLayer;
+@property UIScrollView *scrollLayerView;
 @property UIView *contentLayerView;
 
 @end
@@ -41,87 +41,87 @@
     
     // Scroll View -------------------------------------------------------------------
     
-    self.scrollLayer = [[UIScrollView alloc]init];
+    self.scrollLayerView = [[UIScrollView alloc]init];
     
-    self.scrollLayer.frame = CGRectMake(0, 0, containerWidth, containerHeight);
+    self.scrollLayerView.frame = CGRectMake(0, 0, containerWidth, containerHeight);
     
-    [self.scrollLayer setContentSize:CGSizeMake(self.scrollLayer.frame.size.width, self.scrollLayer.frame.size.height+100)];
-    self.scrollLayer.delegate = self;
-    self.scrollLayer.scrollEnabled = NO;
-    self.scrollLayer.bounces = NO;
-    self.scrollLayer.showsVerticalScrollIndicator = NO;
+    [self.scrollLayerView setContentSize:CGSizeMake(self.scrollLayerView.frame.size.width, self.scrollLayerView.frame.size.height+100)];
+    self.scrollLayerView.delegate = self;
+    self.scrollLayerView.scrollEnabled = NO;
+    self.scrollLayerView.bounces = NO;
+    self.scrollLayerView.showsVerticalScrollIndicator = NO;
     
     
-    [containerView addSubview:self.scrollLayer];
+    [containerView addSubview:self.scrollLayerView];
     
     
     
     // Scroll Content Layer ------------------------------------------------------
     
-    UIView *contentLayer = [[UIView alloc]init];
+    UIView *contentLayerView = [[UIView alloc]init];
     
-    contentLayer.frame = CGRectMake(0, 0, containerWidth, containerHeight);
+    contentLayerView.frame = CGRectMake(0, 0, containerWidth, containerHeight);
 //    contentLayer.backgroundColor = [UIColor redColor];
     
-    [self.scrollLayer addSubview:contentLayer];
-    self.contentLayerView = contentLayer;
+    [self.scrollLayerView addSubview:contentLayerView];
+    self.contentLayerView = contentLayerView;
     
     
     
     
     // Scroll Content -------------------------------------------------------------
     
-    UIView *loginContentLayer = [[UIView alloc]init];
+    UIView *loginContentLayerView = [[UIView alloc]init];
     
-    loginContentLayer.frame = CGRectMake(40, containerHeight/2-165, containerWidth-80, 290);
+    loginContentLayerView.frame = CGRectMake(40, containerHeight/2-165, containerWidth-80, 290);
 //    loginContentLayer.backgroundColor = [UIColor grayColor];
     
-    [contentLayer addSubview:loginContentLayer];
+    [contentLayerView addSubview:loginContentLayerView];
     
     
     
     // Page Content ------------------------------------------------------------------
     
     // Page Content
-    UIView *pageContent = [[UIView alloc]init];
+    UIView *pageContentView = [[UIView alloc]init];
     
-    pageContent.frame = CGRectMake(0, 0, containerWidth-80, 150);
+    pageContentView.frame = CGRectMake(0, 0, containerWidth-80, 150);
     
-    [loginContentLayer addSubview:pageContent];
+    [loginContentLayerView addSubview:pageContentView];
     
-    CGFloat pageContentWidth = pageContent.frame.size.width;
+    CGFloat pageContentWidth = pageContentView.frame.size.width;
     
     // Login Page Logo
-    UIImageView *loginLogo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"login_icon"]];
+    UIImageView *loginLogoImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"login_icon"]];
     
-    loginLogo.frame = CGRectMake(pageContentWidth/2-50, 0, 100, 100);
-    loginLogo.contentMode = UIViewContentModeScaleAspectFit;
+    loginLogoImageView.frame = CGRectMake(pageContentWidth/2-50, 0, 100, 100);
+    loginLogoImageView.contentMode = UIViewContentModeScaleAspectFit;
     
-    [pageContent addSubview:loginLogo];
+    [pageContentView addSubview:loginLogoImageView];
     
     // Login Label
-    UILabel *loginText = [[UILabel alloc]init];
+    UILabel *loginLabel = [[UILabel alloc]init];
     
-    loginText.frame = CGRectMake(0, 100, pageContentWidth, 50);
-    loginText.text = @"Login";
-    loginText.font = [UIFont boldSystemFontOfSize:30];
-    loginText.textAlignment = NSTextAlignmentCenter;
-    loginText.textColor = [UIColor colorWithRed:68.f/255.f green:68.f/255.f blue:68.f/255.f alpha:1.0];
+    loginLabel.frame = CGRectMake(0, 100, pageContentWidth, 50);
+    loginLabel.text = @"Login";
+    loginLabel.font = [UIFont boldSystemFontOfSize:30];
+    loginLabel.textAlignment = NSTextAlignmentCenter;
+    loginLabel.textColor = [UIColor colorWithRed:68.f/255.f green:68.f/255.f blue:68.f/255.f alpha:1.0];
     
-    [pageContent addSubview:loginText];
+    [pageContentView addSubview:loginLabel];
     
     
     
     // Text Field -----------------------------------------------------------------
     
-    CGFloat contentWidth = loginContentLayer.frame.size.width;
+    CGFloat contentWidth = loginContentLayerView.frame.size.width;
     
     // Text Field Layer
-    UIView *textFieldLayer = [[UIView alloc]init];
+    UIView *textFieldLayerView = [[UIView alloc]init];
     
-    textFieldLayer.frame = CGRectMake(0, 170, contentWidth, 75);
+    textFieldLayerView.frame = CGRectMake(0, 170, contentWidth, 75);
     
-    [loginContentLayer addSubview:textFieldLayer];
+    [loginContentLayerView addSubview:textFieldLayerView];
     
     
     
@@ -140,7 +140,7 @@
     self.loginField.clearsOnBeginEditing = YES;
     self.loginField.clearButtonMode = YES;
     
-    [textFieldLayer addSubview:self.loginField];
+    [textFieldLayerView addSubview:self.loginField];
     
     // Password
     self.passwordField = [[UITextField alloc]init];
@@ -158,45 +158,45 @@
     self.passwordField.clearsOnBeginEditing = YES;
     self.passwordField.clearButtonMode = YES;
     
-    [textFieldLayer addSubview:self.passwordField];
+    [textFieldLayerView addSubview:self.passwordField];
     
     
     // BTN Content ------------------------------------------------------------------------
     
     // Btn layer
-    UIView *btnLayer = [[UIView alloc]init];
+    UIView *buttonLayerView = [[UIView alloc]init];
     
-    btnLayer.frame = CGRectMake(0, 255, contentWidth, 35);
+    buttonLayerView.frame = CGRectMake(0, 255, contentWidth, 35);
     
-    [loginContentLayer addSubview:btnLayer];
+    [loginContentLayerView addSubview:buttonLayerView];
     
     // Join Btn
-    UIButton *joinBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton *joinButton = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    joinBtn.frame = CGRectMake(0, 0, contentWidth/2-5, 35);
-    joinBtn.layer.cornerRadius = 5;
-    joinBtn.backgroundColor = [UIColor colorWithRed:235.f/255.f green:76.f/255.f blue:55.f/255.f alpha:1.0];
-    [joinBtn setTitle:@"Join Us" forState:UIControlStateNormal];
-    joinBtn.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+    joinButton.frame = CGRectMake(0, 0, contentWidth/2-5, 35);
+    joinButton.layer.cornerRadius = 5;
+    joinButton.backgroundColor = [UIColor colorWithRed:235.f/255.f green:76.f/255.f blue:55.f/255.f alpha:1.0];
+    [joinButton setTitle:@"Join Us" forState:UIControlStateNormal];
+    joinButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
     
-    [btnLayer addSubview:joinBtn];
+    [buttonLayerView addSubview:joinButton];
     
     
     // Login btn
-    UIButton *loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton *loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    loginBtn.frame = CGRectMake(contentWidth/2+5, 0, contentWidth/2-5, 35);
-    loginBtn.layer.cornerRadius = 5;
-    loginBtn.backgroundColor = [UIColor colorWithRed:46.f/255.f green:150.f/255.f blue:223.f/255.f alpha:1.0];
-    [loginBtn setTitle:@"Login" forState:UIControlStateNormal];
-    loginBtn.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+    loginButton.frame = CGRectMake(contentWidth/2+5, 0, contentWidth/2-5, 35);
+    loginButton.layer.cornerRadius = 5;
+    loginButton.backgroundColor = [UIColor colorWithRed:46.f/255.f green:150.f/255.f blue:223.f/255.f alpha:1.0];
+    [loginButton setTitle:@"Login" forState:UIControlStateNormal];
+    loginButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
     
-    [btnLayer addSubview:loginBtn];
+    [buttonLayerView addSubview:loginButton];
     
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)];
+    UITapGestureRecognizer *tapTheOtherView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)];
     
-    [self.view addGestureRecognizer:tap];
+    [self.view addGestureRecognizer:tapTheOtherView];
     
     
 }
