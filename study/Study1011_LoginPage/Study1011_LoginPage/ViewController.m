@@ -179,12 +179,6 @@
     [joinBtn setTitle:@"Join Us" forState:UIControlStateNormal];
     joinBtn.titleLabel.font = [UIFont boldSystemFontOfSize:14];
     
-    joinBtn.layer.shadowColor = [UIColor colorWithRed:68.f/255.f green:68.f/255.f blue:68.f/255.f alpha:1.0].CGColor;
-    joinBtn.layer.shadowOpacity = 1.0;
-    joinBtn.layer.shadowRadius = 0;
-    joinBtn.layer.shadowOffset = CGSizeMake(2.0f, 2.0f);
-    joinBtn.layer.masksToBounds = NO;
-    
     [btnLayer addSubview:joinBtn];
     
     
@@ -261,6 +255,7 @@
     
 }
 
+// 스크롤 제자리로
 -(void)dismissKeyboard:(UITapGestureRecognizer *)sender {
     [self.loginField resignFirstResponder];
     [self.passwordField resignFirstResponder];
