@@ -69,7 +69,7 @@
     
     moviePosterImage.frame = CGRectMake(posterImageView.frame.size.width*0.0225, posterImageView.frame.size.height*0.02, posterImageView.frame.size.width*0.955, posterImageView.frame.size.height*0.96);
     moviePosterImage.image = [UIImage imageNamed:@"doctorstrange_poster.jpg"];
-    moviePosterImage.contentMode = UIViewContentModeScaleAspectFit;
+    moviePosterImage.contentMode = UIViewContentModeScaleToFill;
     
     [posterImageView addSubview:moviePosterImage];
     
