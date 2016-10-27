@@ -1,8 +1,8 @@
 //
 //  AppDelegate.m
-//  Study1025_Homework
+//  Class1027_MyImagePicker
 //
-//  Created by chaving on 2016. 10. 25..
+//  Created by chaving on 2016. 10. 27..
 //  Copyright © 2016년 chaving. All rights reserved.
 //
 
@@ -19,38 +19,6 @@
     // Override point for customization after application launch.
     return YES;
 }
-
-- (BOOL)application:(UIApplication *)application shouldRestoreApplicationState:(NSCoder *)coder {
-    
-    NSLog(@"Restore status--------------------");
-    
-    return YES;
-}
-
-- (BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder {
-    
-    NSLog(@"Save status %@--------------------", coder);
-    
-    return YES;
-}
-
-
-
-//- (void)application:(UIApplication *)application willEncodeRestorableStateWithCoder:(nonnull NSCoder *)coder{
-//
-//    NSLog(@"Will Encoder Restore status %@--------------------", coder);
-//
-//}
-//
-//- (void)application:(UIApplication *)application didDecodeRestorableStateWithCoder:(NSCoder *)coder{
-//
-//    NSLog(@"Did Encoder Restore status %@--------------------", coder);
-//}
-//
-//- (void)application:(UIApplication *)application viewControllerWithRestorationIdentifierPath:(NSCoder *)coder{
-//
-//    NSLog(@"Viewcontroller Encoder Restore status %@--------------------", coder);
-//}
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {
