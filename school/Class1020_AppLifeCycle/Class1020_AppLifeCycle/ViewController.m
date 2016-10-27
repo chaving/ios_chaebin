@@ -1,8 +1,8 @@
 //
 //  ViewController.m
-//  Class1018_AutoLayout
+//  Class1020_AppLifeCycle
 //
-//  Created by chaving on 2016. 10. 18..
+//  Created by chaving on 2016. 10. 20..
 //  Copyright © 2016년 chaving. All rights reserved.
 //
 
@@ -17,12 +17,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
-    
-    // 스테이터스 바의 사이즈
-    // [[UIApplication sharedApplication] statusBarFrame];
-    [[UIApplication sharedApplication] statusBarFrame];
-    
 }
 
 
