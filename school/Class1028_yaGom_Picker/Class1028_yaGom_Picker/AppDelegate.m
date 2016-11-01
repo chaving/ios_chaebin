@@ -1,12 +1,13 @@
 //
 //  AppDelegate.m
-//  Study1026_homeworkTest
+//  Class1028_yaGom_Picker
 //
-//  Created by chaving on 2016. 10. 26..
+//  Created by chaving on 2016. 10. 28..
 //  Copyright © 2016년 chaving. All rights reserved.
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
 
 @interface AppDelegate ()
 
@@ -20,15 +21,18 @@
     return YES;
 }
 
-- (BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder {
+
+- (BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder{
 
     return YES;
 }
 
-- (BOOL)application:(UIApplication *)application shouldRestoreApplicationState:(NSCoder *)coder {
+- (BOOL)application:(UIApplication *)application shouldRestoreApplicationState:(NSCoder *)coder{
 
     return YES;
 }
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -54,6 +58,8 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    
+    
 }
 
 

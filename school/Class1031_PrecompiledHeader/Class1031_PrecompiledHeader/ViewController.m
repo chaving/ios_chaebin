@@ -1,14 +1,14 @@
 //
 //  ViewController.m
-//  Class1027_MyImagePicker
+//  Class1031_PrecompiledHeader
 //
-//  Created by chaving on 2016. 10. 27..
+//  Created by chaving on 2016. 10. 31..
 //  Copyright © 2016년 chaving. All rights reserved.
 //
 
 #import "ViewController.h"
 
-@interface ViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface ViewController ()
 
 @end
 
@@ -18,9 +18,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-//    UIImageView.userInteractionEnabled = YES;
+    [[MySingleton sharedInstance] justMethod];
 }
-
 
 
 - (void)didReceiveMemoryWarning {

@@ -42,8 +42,6 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>$(PRODUCT_NAME) user photos</string>
-	<key>NSCameraUsageDescription</key>
-	<string>$(PRODUCT_NAME) camera use</string>
+	<string>사진을 가져오려면 사진첩에 접근 해야 합니다.</string>
 </dict>
 </plist>

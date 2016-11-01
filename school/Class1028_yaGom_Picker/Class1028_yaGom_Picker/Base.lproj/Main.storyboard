@@ -18,27 +18,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5GW-Rm-KGB">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zBA-MM-7B9">
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
+                                </accessibility>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="InY-gH-VQc" appends="YES" id="C8v-dk-gkr"/>
+                                </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="5GW-Rm-KGB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="F6b-IP-NVZ"/>
-                            <constraint firstItem="5GW-Rm-KGB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Pfc-Z4-dfl"/>
-                            <constraint firstAttribute="trailing" secondItem="5GW-Rm-KGB" secondAttribute="trailing" id="Q8b-cJ-FJo"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5GW-Rm-KGB" secondAttribute="bottom" id="ns2-eg-VfO"/>
+                            <constraint firstAttribute="trailing" secondItem="zBA-MM-7B9" secondAttribute="trailing" id="5U6-sj-vY4"/>
+                            <constraint firstItem="zBA-MM-7B9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="SSv-OM-1ac"/>
+                            <constraint firstItem="zBA-MM-7B9" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="bL4-99-uuY"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="zBA-MM-7B9" secondAttribute="bottom" id="vRb-oR-XLE"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="4BF-eY-f0l" appends="YES" id="XxT-0Z-A1J"/>
-                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="zBA-MM-7B9" id="dU9-E0-0WW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="4BF-eY-f0l">
+                <tapGestureRecognizer id="InY-gH-VQc">
                     <connections>
-                        <action selector="onTouchActionSheet:" destination="BYZ-38-t0r" id="Liv-Zn-GWN"/>
+                        <action selector="onTapImageView:" destination="BYZ-38-t0r" id="IOl-yF-FEP"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
