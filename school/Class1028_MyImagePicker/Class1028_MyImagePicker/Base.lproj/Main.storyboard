@@ -18,27 +18,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5GW-Rm-KGB">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JaG-sf-cgc">
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
+                                </accessibility>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="InE-Fs-ZyL" appends="YES" id="Y67-w6-1Jw"/>
+                                </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <accessibility key="accessibilityConfiguration">
+                            <accessibilityTraits key="traits" notEnabled="YES"/>
+                        </accessibility>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="5GW-Rm-KGB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="F6b-IP-NVZ"/>
-                            <constraint firstItem="5GW-Rm-KGB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Pfc-Z4-dfl"/>
-                            <constraint firstAttribute="trailing" secondItem="5GW-Rm-KGB" secondAttribute="trailing" id="Q8b-cJ-FJo"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5GW-Rm-KGB" secondAttribute="bottom" id="ns2-eg-VfO"/>
+                            <constraint firstAttribute="trailing" secondItem="JaG-sf-cgc" secondAttribute="trailing" id="1MQ-6U-Pe3"/>
+                            <constraint firstItem="JaG-sf-cgc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dBT-tp-Ekg"/>
+                            <constraint firstItem="JaG-sf-cgc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="gq8-wR-WOh"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="JaG-sf-cgc" secondAttribute="bottom" id="zXH-tN-s43"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="4BF-eY-f0l" appends="YES" id="XxT-0Z-A1J"/>
-                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="JaG-sf-cgc" id="iNR-MW-vZh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="4BF-eY-f0l">
+                <tapGestureRecognizer id="InE-Fs-ZyL">
                     <connections>
-                        <action selector="onTouchActionSheet:" destination="BYZ-38-t0r" id="Liv-Zn-GWN"/>
+                        <action selector="onTapActionSheet:" destination="BYZ-38-t0r" id="GvD-UN-euJ"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

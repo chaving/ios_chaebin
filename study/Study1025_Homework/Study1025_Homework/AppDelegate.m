@@ -20,16 +20,14 @@
     return YES;
 }
 
-- (BOOL)application:(UIApplication *)application shouldRestoreApplicationState:(NSCoder *)coder {
-    
-    NSLog(@"Restore status--------------------");
-    
+
+
+- (BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder {
+
     return YES;
 }
 
-- (BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder {
-    
-    NSLog(@"Save status %@--------------------", coder);
+- (BOOL)application:(UIApplication *)application shouldRestoreApplicationState:(NSCoder *)coder {
     
     return YES;
 }

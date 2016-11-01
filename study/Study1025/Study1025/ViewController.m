@@ -50,9 +50,7 @@
     [self.navigationController setNavigationBarHidden:YES];
     
     WingNaviBar *viewNavi = [[WingNaviBar alloc] initWithType:WingNaviBarTypeAdd ViewController:self target:self action:@selector(onTouchUpToNextPage:)];
-    
-
-    
+  
 }
 
 
