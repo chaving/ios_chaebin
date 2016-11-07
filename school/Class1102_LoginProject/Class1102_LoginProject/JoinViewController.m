@@ -7,6 +7,7 @@
 //
 
 #import "JoinViewController.h"
+#import "MainViewController.h"
 
 @interface JoinViewController () <UITextFieldDelegate, UIScrollViewDelegate>
 
@@ -52,7 +53,7 @@
     
     [containerView addSubview:scrollLayerView];
     
-
+    
     
     
     
@@ -62,7 +63,7 @@
     self.joinContentView = [[UIView alloc] init];
     
     self.joinContentView.frame = CGRectMake(0, self.view.frame.size.height/2-200, scrollLayerView.frame.size.width, 205);
-//    joinContentView.backgroundColor = [UIColor redColor];
+    //    joinContentView.backgroundColor = [UIColor redColor];
     
     [scrollLayerView addSubview:self.joinContentView];
     
@@ -134,38 +135,156 @@
     
     // Cancel BTN ---------------------------------------------------------------------------------
     
+    UIButton *closeButton = [[UIButton alloc] init];
+    
+    closeButton.frame = CGRectMake(0, 0, buttonLayerView.frame.size.width/2-5, 30);
+    closeButton.layer.cornerRadius = 5;
+    closeButton.backgroundColor = [UIColor colorWithRed:235.f/255.f green:76.f/255.f blue:55.f/255.f alpha:1.0];
+    [closeButton setTitle:@"Cancel" forState:UIControlStateNormal];
+    closeButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+    
+    [closeButton addTarget:self
+                   action:@selector(onTouchUpInsideCancelButton)
+         forControlEvents:UIControlEventTouchUpInside];
+    
+    [buttonLayerView addSubview:closeButton];
+    
+    
+    // Join BTN ---------------------------------------------------------------------------------
+    
     UIButton *joinButton = [[UIButton alloc] init];
     
-    joinButton.frame = CGRectMake(0, 0, buttonLayerView.frame.size.width/2-5, 30);
+    joinButton.frame = CGRectMake(buttonLayerView.frame.size.width/2+5, 0, buttonLayerView.frame.size.width/2-5, 30);
     joinButton.layer.cornerRadius = 5;
-    joinButton.backgroundColor = [UIColor colorWithRed:235.f/255.f green:76.f/255.f blue:55.f/255.f alpha:1.0];
-    [joinButton setTitle:@"Cancel" forState:UIControlStateNormal];
+    joinButton.backgroundColor = [UIColor colorWithRed:46.f/255.f green:150.f/255.f blue:223.f/255.f alpha:1.0];
+    [joinButton setTitle:@"Join Us" forState:UIControlStateNormal];
     joinButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+    
     [joinButton addTarget:self
-                   action:@selector(onTouchUpInsideCancelButton)
+                   action:@selector(onTouchUpInsideLoginButton)
          forControlEvents:UIControlEventTouchUpInside];
     
     [buttonLayerView addSubview:joinButton];
     
     
-    // Join BTN ---------------------------------------------------------------------------------
-    
-    UIButton *loginButton = [[UIButton alloc] init];
-    
-    loginButton.frame = CGRectMake(buttonLayerView.frame.size.width/2+5, 0, buttonLayerView.frame.size.width/2-5, 30);
-    loginButton.layer.cornerRadius = 5;
-    loginButton.backgroundColor = [UIColor colorWithRed:46.f/255.f green:150.f/255.f blue:223.f/255.f alpha:1.0];
-    [loginButton setTitle:@"Join Us" forState:UIControlStateNormal];
-    loginButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
-    
-    [buttonLayerView addSubview:loginButton];
-    
-    
 }
 
 - (void)onTouchUpInsideCancelButton{
-
+    
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+// Join Us 버튼 클릭 액션
+- (void)onTouchUpInsideLoginButton{
+    
+    DataCenter *userDataCenter = [DataCenter sharedData];
+    
+    NSString *confirmID = self.idTextField.text;
+    NSString *bagicPassward = self.passwordTextField.text;
+    NSString *confirmPassward = self.rePasswordTextField.text;
+    
+    
+    // 아이디 필드 값이 비었을때
+    if ([confirmID isEqualToString:@""]){
+        
+        UIAlertController *alertController =
+        [UIAlertController alertControllerWithTitle:@"오류"
+                                            message:[NSString stringWithFormat:@"아이디를 입력하세요."]
+                                     preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"확인"
+                                                               style:UIAlertActionStyleCancel
+                                                             handler:^(UIAlertAction * _Nonnull action){}];
+        
+        [alertController addAction:cancelAction];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
+        
+    }
+    
+    // 비밀번호 두개 필드가 비었을때
+    if([bagicPassward isEqualToString:@""] || [confirmPassward isEqualToString:@""]){
+    
+        UIAlertController *alertController =
+        [UIAlertController alertControllerWithTitle:@"오류"
+                                            message:[NSString stringWithFormat:@"비밀번호를 입력하세요"]
+                                     preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"확인"
+                                                               style:UIAlertActionStyleCancel
+                                                             handler:^(UIAlertAction * _Nonnull action){}];
+        
+        [alertController addAction:cancelAction];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
+    
+    }
+    
+    // 비밀번호가 같을때 메인으로 넘겨주는 블록 함수
+    void (^actionHandler)(UIAlertAction * _Nonnull action) = ^(UIAlertAction * _Nonnull action){
+        
+        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        MainViewController *mainView = [storyBoard instantiateViewControllerWithIdentifier:@"MainViewController"];
+        
+        [mainView setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+        
+        [self presentViewController:mainView animated:YES completion:^{}];
+    };
+    
+    // 비밀번호가 같은지 확인
+    if ([bagicPassward isEqualToString:confirmPassward]) {
+        
+        // 아이디 중복 검사를 하고
+        if ([userDataCenter joinUserID:confirmID userPW:confirmPassward] == YES) {
+            
+            [userDataCenter setAutoLogin:YES];
+            
+            UIAlertController *alertController =
+            [UIAlertController alertControllerWithTitle:@"확인"
+                                                message:[NSString stringWithFormat:@"가입이 완료되었습니다."]
+                                         preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"확인"
+                                                                   style:UIAlertActionStyleCancel
+                                                                 handler:actionHandler];
+            
+            [alertController addAction:cancelAction];
+            
+            [self presentViewController:alertController animated:YES completion:nil];
+            
+        }else{
+        
+            UIAlertController *alertController =
+            [UIAlertController alertControllerWithTitle:@"오류"
+                                                message:[NSString stringWithFormat:@"중복된 아이디 입니다."]
+                                         preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"확인"
+                                                                   style:UIAlertActionStyleCancel
+                                                                 handler:nil];
+            
+            [alertController addAction:cancelAction];
+            
+            [self presentViewController:alertController animated:YES completion:nil];
+        }
+        
+    }else{
+    
+        UIAlertController *alertController =
+        [UIAlertController alertControllerWithTitle:@"오류"
+                                            message:[NSString stringWithFormat:@"비밀번호가 같지 않습니다."]
+                                     preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"확인"
+                                                               style:UIAlertActionStyleCancel
+                                                             handler:^(UIAlertAction * _Nonnull action){}];
+        
+        [alertController addAction:cancelAction];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
+    
+    }
+    
 }
 
 
@@ -264,24 +383,19 @@
     
 }
 
-
-
-
-
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

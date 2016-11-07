@@ -11,6 +11,10 @@
 
 @interface ViewController () <UITextFieldDelegate, UIScrollViewDelegate>
 
+@property UITextField *idTextField;
+@property UITextField *passwordTextField;
+@property UIView *loginContentView;
+
 @end
 
 @implementation ViewController
@@ -18,6 +22,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    [self.navigationController setNavigationBarHidden:YES];
     
     CGFloat scrollbarY = [UIApplication sharedApplication].statusBarFrame.size.height;
     
@@ -50,15 +56,15 @@
     
     
     // LoginContent View -----------------------------------------------------------------------
-    UIView *loginContentView = [[UIView alloc] init];
+    self.loginContentView = [[UIView alloc] init];
     
-    loginContentView.frame = CGRectMake(0, self.view.frame.size.height/2 - 170, containerViewWidth - 100, 170);
+    self.loginContentView.frame = CGRectMake(0, self.view.frame.size.height/2 - 170, containerViewWidth - 100, 170);
 //    loginContentView.backgroundColor = [UIColor blackColor];
     
-    [scrollLayerView addSubview:loginContentView];
+    [scrollLayerView addSubview:self.loginContentView];
     
     
-    CGFloat loginContentWidth = loginContentView.frame.size.width;
+    CGFloat loginContentWidth = self.loginContentView.frame.size.width;
 //    CGFloat loginContentHeight = loginContentView.frame.size.height;
     
     
@@ -72,32 +78,34 @@
     loginLabel.font = [UIFont boldSystemFontOfSize:25];
     loginLabel.textColor = [UIColor darkGrayColor];
     
-    [loginContentView addSubview:loginLabel];
+    [self.loginContentView addSubview:loginLabel];
     
     
     
     // ID TextField -----------------------------------------------------------------------
     
-    UITextField *idTextField = [[UITextField alloc] init];
+    self.idTextField = [[UITextField alloc] init];
     
-    idTextField.frame = CGRectMake(0, 70, loginContentWidth, 30);
-    idTextField.borderStyle = UITextBorderStyleRoundedRect;
-    idTextField.placeholder = @"아이디";
-    idTextField.font = [UIFont systemFontOfSize:13];
+    self.idTextField.frame = CGRectMake(0, 70, loginContentWidth, 30);
+    self.idTextField.borderStyle = UITextBorderStyleRoundedRect;
+    self.idTextField.placeholder = @"아이디";
+    self.idTextField.delegate = self;
+    self.idTextField.font = [UIFont systemFontOfSize:13];
     
-    [loginContentView addSubview:idTextField];
+    [self.loginContentView addSubview:self.idTextField];
     
     
     // Password TextField -----------------------------------------------------------------------
     
-    UITextField *passwordTextField = [[UITextField alloc] init];
+    self.passwordTextField = [[UITextField alloc] init];
     
-    passwordTextField.frame = CGRectMake(0, 105, loginContentWidth, 30);
-    passwordTextField.borderStyle = UITextBorderStyleRoundedRect;
-    passwordTextField.placeholder = @"비밀번호";
-    passwordTextField.font = [UIFont systemFontOfSize:13];
+    self.passwordTextField.frame = CGRectMake(0, 105, loginContentWidth, 30);
+    self.passwordTextField.borderStyle = UITextBorderStyleRoundedRect;
+    self.passwordTextField.placeholder = @"비밀번호";
+    self.passwordTextField.delegate = self;
+    self.passwordTextField.font = [UIFont systemFontOfSize:13];
     
-    [loginContentView addSubview:passwordTextField];
+    [self.loginContentView addSubview:self.passwordTextField];
     
 
     // BTN Layer -------------------------------------------------------------------------------
@@ -106,7 +114,7 @@
     
     buttonLayerView.frame = CGRectMake(0, 140, loginContentWidth, 30);
     
-    [loginContentView addSubview:buttonLayerView];
+    [self.loginContentView addSubview:buttonLayerView];
     
     
     
@@ -154,6 +162,97 @@
     [self.navigationController pushViewController:joinView animated:YES];
     
 }
+
+
+// 텍스트 필드에서 리턴값 적용시 이벤트
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    
+    BOOL onOff;
+    // textField == self.loginField
+    if (textField == self.idTextField) {
+        
+        [textField resignFirstResponder];
+        [self.passwordTextField becomeFirstResponder];
+        
+        onOff = NO;
+        
+    }else{
+        
+        [textField resignFirstResponder];
+        
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:0.4];
+        
+        CGRect rect = self.loginContentView.frame;
+        rect.origin.y = self.view.frame.size.height/2 - 170;
+        self.loginContentView.frame = rect;
+        
+        [UIView commitAnimations];
+        
+        onOff = YES;
+    }
+    
+    return onOff;
+}
+
+// 텍스트 필드 선택시 스크롤업
+- (void)textFieldDidBeginEditing:(UITextField *)textField{
+    
+    NSInteger startEditing = 0;
+    
+    if (startEditing == 0) {
+        
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:0.4];
+        
+        CGRect rect = self.loginContentView.frame;
+        rect.origin.y = self.view.frame.size.height/2 - 270;
+        self.loginContentView.frame = rect;
+        
+        [UIView commitAnimations];
+        
+        startEditing = 1;
+        
+    }
+    
+}
+
+// 스크롤 제자리로
+-(void)dismissKeyboard:(UITapGestureRecognizer *)sender {
+    [self.idTextField resignFirstResponder];
+    [self.passwordTextField resignFirstResponder];
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.4];
+    
+    CGRect rect = self.loginContentView.frame;
+    rect.origin.y = 0;
+    self.loginContentView.frame = rect;
+    
+    [UIView commitAnimations];
+}
+
+
+
+
+// 텍스트 필드 글자수 제한
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    
+    NSInteger maxChar = 16;
+    
+    NSString *replacedString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    
+    NSInteger len = [replacedString length];
+    
+    if( len <= maxChar ){
+        return YES;
+    }
+    
+    return NO;
+    
+}
+
+
 
 
 - (void)didReceiveMemoryWarning {
