@@ -25,6 +25,7 @@
 
 @end
 
+
 @implementation ViewController
 
 #pragma mark - Life Cycle
@@ -33,6 +34,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIViewController
     
     CGRect labelFrame = CGRectMake(30.f, 30.f, 250.f, 30.f);
     CGRect buttonFrame = CGRectMake(30.f, 70.f, 50.f, 30.f);
@@ -106,7 +109,6 @@
         
         [self setShouldAppStatus:YES];
     }
-    
     
 }
 

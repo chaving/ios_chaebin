@@ -27,7 +27,7 @@
     self.imageView.image = mainImage;
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
     
-
+    
 }
 
 

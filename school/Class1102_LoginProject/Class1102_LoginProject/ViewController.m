@@ -1,27 +1,30 @@
 //
-//  JoinViewController.m
+//  ViewController.m
 //  Class1024_UIViewController
 //
 //  Created by chaving on 2016. 10. 24..
 //  Copyright © 2016년 chaving. All rights reserved.
 //
 
+#import "ViewController.h"
 #import "JoinViewController.h"
+#import "MainViewController.h"
 
-@interface JoinViewController () <UITextFieldDelegate, UIScrollViewDelegate>
+@interface ViewController () <UITextFieldDelegate, UIScrollViewDelegate>
 
 @property UITextField *idTextField;
 @property UITextField *passwordTextField;
-@property UITextField *rePasswordTextField;
-@property UIView *joinContentView;
+@property UIView *loginContentView;
 
 @end
 
-@implementation JoinViewController
+@implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    // Do any additional setup after loading the view, typically from a nib.
+    
+    [self.navigationController setNavigationBarHidden:YES];
     
     CGFloat scrollbarY = [UIApplication sharedApplication].statusBarFrame.size.height;
     
@@ -52,120 +55,157 @@
     
     [containerView addSubview:scrollLayerView];
     
-
+    
+    // LoginContent View -----------------------------------------------------------------------
+    self.loginContentView = [[UIView alloc] init];
+    
+    self.loginContentView.frame = CGRectMake(0, self.view.frame.size.height/2 - 170, containerViewWidth - 100, 170);
+    //    loginContentView.backgroundColor = [UIColor blackColor];
+    
+    [scrollLayerView addSubview:self.loginContentView];
+    
+    
+    CGFloat loginContentWidth = self.loginContentView.frame.size.width;
+    //    CGFloat loginContentHeight = loginContentView.frame.size.height;
+    
+    
+    // Login Label -----------------------------------------------------------------------
+    
+    UILabel *loginLabel = [[UILabel alloc] init];
+    
+    loginLabel.frame = CGRectMake(0, 0, loginContentWidth, 50);
+    loginLabel.text = @"Login";
+    loginLabel.textAlignment = NSTextAlignmentCenter;
+    loginLabel.font = [UIFont boldSystemFontOfSize:25];
+    loginLabel.textColor = [UIColor darkGrayColor];
+    
+    [self.loginContentView addSubview:loginLabel];
     
     
     
-    
-    // Join content -----------------------------------------------------------------------
-    
-    self.joinContentView = [[UIView alloc] init];
-    
-    self.joinContentView.frame = CGRectMake(0, self.view.frame.size.height/2-200, scrollLayerView.frame.size.width, 205);
-//    joinContentView.backgroundColor = [UIColor redColor];
-    
-    [scrollLayerView addSubview:self.joinContentView];
-    
-    
-    CGFloat joinContentWidht = self.joinContentView.frame.size.width;
-    
-    
-    // Join Label ------------------------------------------------------------------------
-    
-    UILabel *joinLabelText = [[UILabel alloc] init];
-    
-    joinLabelText.frame = CGRectMake(0, 0, joinContentWidht, 50);
-    joinLabelText.text = @"Join";
-    joinLabelText.font = [UIFont boldSystemFontOfSize:30];
-    joinLabelText.textColor = [UIColor darkGrayColor];
-    
-    [self.joinContentView addSubview:joinLabelText];
-    
-    
-    // id TextField -----------------------------------------------------------------------
+    // ID TextField -----------------------------------------------------------------------
     
     self.idTextField = [[UITextField alloc] init];
     
-    self.idTextField.frame = CGRectMake(0, 60, joinContentWidht, 30);
+    self.idTextField.frame = CGRectMake(0, 70, loginContentWidth, 30);
     self.idTextField.borderStyle = UITextBorderStyleRoundedRect;
     self.idTextField.placeholder = @"아이디";
     self.idTextField.delegate = self;
     self.idTextField.font = [UIFont systemFontOfSize:13];
     
-    [self.joinContentView addSubview:self.idTextField];
+    [self.loginContentView addSubview:self.idTextField];
     
     
     // Password TextField -----------------------------------------------------------------------
     
     self.passwordTextField = [[UITextField alloc] init];
     
-    self.passwordTextField.frame = CGRectMake(0, 95, joinContentWidht, 30);
+    self.passwordTextField.frame = CGRectMake(0, 105, loginContentWidth, 30);
     self.passwordTextField.borderStyle = UITextBorderStyleRoundedRect;
     self.passwordTextField.placeholder = @"비밀번호";
     self.passwordTextField.delegate = self;
     self.passwordTextField.font = [UIFont systemFontOfSize:13];
     
-    [self.joinContentView addSubview:self.passwordTextField];
-    
-    
-    // rePassword TextField -----------------------------------------------------------------------
-    
-    self.rePasswordTextField = [[UITextField alloc] init];
-    
-    self.rePasswordTextField.frame = CGRectMake(0, 130, joinContentWidht, 30);
-    self.rePasswordTextField.borderStyle = UITextBorderStyleRoundedRect;
-    self.rePasswordTextField.placeholder = @"비밀번호 확인";
-    self.rePasswordTextField.delegate = self;
-    self.rePasswordTextField.font = [UIFont systemFontOfSize:13];
-    
-    [self.joinContentView addSubview:self.rePasswordTextField];
-    
+    [self.loginContentView addSubview:self.passwordTextField];
     
     
     // BTN Layer -------------------------------------------------------------------------------
     
     UIView *buttonLayerView = [[UIView alloc] init];
     
-    buttonLayerView.frame = CGRectMake(0, 165, joinContentWidht, 30);
+    buttonLayerView.frame = CGRectMake(0, 140, loginContentWidth, 30);
     
-    [self.joinContentView addSubview:buttonLayerView];
+    [self.loginContentView addSubview:buttonLayerView];
     
     
     
-    // Cancel BTN ---------------------------------------------------------------------------------
+    // Join BTN ---------------------------------------------------------------------------------
     
     UIButton *joinButton = [[UIButton alloc] init];
     
     joinButton.frame = CGRectMake(0, 0, buttonLayerView.frame.size.width/2-5, 30);
     joinButton.layer.cornerRadius = 5;
     joinButton.backgroundColor = [UIColor colorWithRed:235.f/255.f green:76.f/255.f blue:55.f/255.f alpha:1.0];
-    [joinButton setTitle:@"Cancel" forState:UIControlStateNormal];
+    [joinButton setTitle:@"Join Us" forState:UIControlStateNormal];
     joinButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+    
     [joinButton addTarget:self
-                   action:@selector(onTouchUpInsideCancelButton)
+                   action:@selector(onTouchUpInsideJoinButton)
          forControlEvents:UIControlEventTouchUpInside];
     
     [buttonLayerView addSubview:joinButton];
     
     
-    // Join BTN ---------------------------------------------------------------------------------
+    // Login BTN ---------------------------------------------------------------------------------
     
     UIButton *loginButton = [[UIButton alloc] init];
     
     loginButton.frame = CGRectMake(buttonLayerView.frame.size.width/2+5, 0, buttonLayerView.frame.size.width/2-5, 30);
     loginButton.layer.cornerRadius = 5;
     loginButton.backgroundColor = [UIColor colorWithRed:46.f/255.f green:150.f/255.f blue:223.f/255.f alpha:1.0];
-    [loginButton setTitle:@"Join Us" forState:UIControlStateNormal];
+    [loginButton setTitle:@"Login" forState:UIControlStateNormal];
     loginButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+    
+    [loginButton addTarget:self
+                    action:@selector(onTouchUpInsideLoginButton)
+          forControlEvents:UIControlEventTouchUpInside];
     
     [buttonLayerView addSubview:loginButton];
     
     
+    
+    
+    
+    
 }
 
-- (void)onTouchUpInsideCancelButton{
+// Join 버튼 클릭 액션
+- (void)onTouchUpInsideJoinButton{
+    
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    JoinViewController *joinView = [storyBoard instantiateViewControllerWithIdentifier:@"JoinViewController"];
+    
+    [joinView setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+    
+    [self.navigationController pushViewController:joinView animated:YES];
+    
+}
 
-    [self.navigationController popViewControllerAnimated:YES];
+
+// Login 버튼 클릭 액션
+- (void)onTouchUpInsideLoginButton{
+    
+    DataCenter *userDataCenter = [DataCenter sharedData];
+    
+    if ([userDataCenter haveUserID:self.idTextField.text userPW:self.passwordTextField.text] == YES) {
+        
+        [userDataCenter setAutoLogin:YES];
+        
+        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        MainViewController *mainView = [storyBoard instantiateViewControllerWithIdentifier:@"MainViewController"];
+        
+        [mainView setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+        
+        [self presentViewController:mainView animated:YES completion:^{}];
+        
+    }else{
+    
+        UIAlertController *alertController =
+        [UIAlertController alertControllerWithTitle:@"오류"
+                                            message:[NSString stringWithFormat:@"아이디 / 비밀번호가 일치하지 않습니다."]
+                                     preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"확인"
+                                                               style:UIAlertActionStyleCancel
+                                                             handler:^(UIAlertAction * _Nonnull action){}];
+        
+        [alertController addAction:cancelAction];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
+    
+    }
+
+    
 }
 
 
@@ -181,13 +221,6 @@
         
         onOff = NO;
         
-    }else if(textField == self.passwordTextField){
-        
-        [textField resignFirstResponder];
-        [self.rePasswordTextField becomeFirstResponder];
-        
-        onOff = NO;
-        
     }else{
         
         [textField resignFirstResponder];
@@ -195,9 +228,9 @@
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:0.4];
         
-        CGRect rect = self.joinContentView.frame;
-        rect.origin.y = self.view.frame.size.height/2-200;
-        self.joinContentView.frame = rect;
+        CGRect rect = self.loginContentView.frame;
+        rect.origin.y = self.view.frame.size.height/2 - 170;
+        self.loginContentView.frame = rect;
         
         [UIView commitAnimations];
         
@@ -217,9 +250,9 @@
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:0.4];
         
-        CGRect rect = self.joinContentView.frame;
-        rect.origin.y = self.view.frame.size.height/2 - 250;
-        self.joinContentView.frame = rect;
+        CGRect rect = self.loginContentView.frame;
+        rect.origin.y = self.view.frame.size.height/2 - 270;
+        self.loginContentView.frame = rect;
         
         [UIView commitAnimations];
         
@@ -237,9 +270,9 @@
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.4];
     
-    CGRect rect = self.joinContentView.frame;
+    CGRect rect = self.loginContentView.frame;
     rect.origin.y = 0;
-    self.joinContentView.frame = rect;
+    self.loginContentView.frame = rect;
     
     [UIView commitAnimations];
 }
@@ -267,21 +300,10 @@
 
 
 
-
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
