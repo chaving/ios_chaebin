@@ -107,7 +107,7 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
 
-    NSArray *dataList = [tableView cellForRowAtIndexPath:indexPath];
+//    NSArray *dataList = [tableView cellForRowAtIndexPath:indexPath];
     
     //삭제 되는 데이터 지우고
 //    [self.animalData removeObjectAtIndex:indexPath.row];
