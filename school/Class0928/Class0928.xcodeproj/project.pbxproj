@@ -259,6 +259,7 @@
 				5FAA31A81D9B61920045C5BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -210,12 +210,12 @@
     // 다음에 값이 없을때 값을 출력하고 끝
     if (node.nextNode == nil) {
     
-        NSLog(@"%ld / index : %ld", node.value, node.index);
+        NSLog(@"%ld", node.value);
         
     // 값을 출력했는데 다음에 또 값이 있으면 다음으로!
     }else{
         
-        NSLog(@"%ld / index : %ld", node.value, node.index);
+        NSLog(@"%ld", node.value);
         
         [self printNode:node.nextNode];
     

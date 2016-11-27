@@ -13,30 +13,30 @@
 
 int main(int argc, const char * argv[]) {
     
-    [Multication getMultiplicationTable:3];
-    
-    NSLog(@"-------------------------------------------");
-    
-    [Multication forMultiplicationTable:3];
-
-    NSLog(@"-------------------------------------------");
-    
-    [Multication factorial:4];
-    
-    NSLog(@"-------------------------------------------");
-    
-    [Multication triangleNum:10];
-    [Multication triangleNum:-1];
-    
-    NSLog(@"-------------------------------------------");
-    
-    [Multication addAllNum:1234];
-    
-    NSLog(@"-------------------------------------------");
-    
-    [Multication game369:400];
-    
-    NSLog(@"-------------------------------------------");
+//    [Multication getMultiplicationTable:3];
+//    
+//    NSLog(@"-------------------------------------------");
+//    
+//    [Multication forMultiplicationTable:3];
+//
+//    NSLog(@"-------------------------------------------");
+//    
+//    [Multication factorial:4];
+//    
+//    NSLog(@"-------------------------------------------");
+//    
+//    [Multication triangleNum:10];
+//    [Multication triangleNum:-1];
+//    
+//    NSLog(@"-------------------------------------------");
+//    
+//    [Multication addAllNum:1234];
+//    
+//    NSLog(@"-------------------------------------------");
+//    
+//    [Multication game369:400];
+//    
+//    NSLog(@"-------------------------------------------");
     
     
     
@@ -106,9 +106,9 @@ int main(int argc, const char * argv[]) {
     NSLog(@"%@",[DataEX playTimeData:@"심쿵해" data:aoalbum]);
     
     
-//    Multication *test = [[Multication alloc]init];
-    
-    NSLog(@"%@",[Multication integerFactorization:128]);
+////    Multication *test = [[Multication alloc]init];
+//    
+//    NSLog(@"%@",[Multication integerFactorization:128]);
     
     
     return 0;
