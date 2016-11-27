@@ -143,6 +143,7 @@
     loginButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
     
     [buttonLayerView addSubview:loginButton];
+
 }
 
 
@@ -154,6 +155,7 @@
     [joinView setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
     
     [self.navigationController pushViewController:joinView animated:YES];
+
 }
 
 
