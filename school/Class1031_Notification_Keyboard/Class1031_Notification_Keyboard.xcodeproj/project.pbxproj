@@ -13,6 +13,8 @@
 		5F76B1641DC70F38006DA550 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F76B1621DC70F38006DA550 /* Main.storyboard */; };
 		5F76B1661DC70F38006DA550 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F76B1651DC70F38006DA550 /* Assets.xcassets */; };
 		5F76B1691DC70F38006DA550 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F76B1671DC70F38006DA550 /* LaunchScreen.storyboard */; };
+		5FC1A71F1DFC68D0007CB48D /* keyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC1A71E1DFC68D0007CB48D /* keyboard.m */; };
+		5FC1A7211DFC6949007CB48D /* Keyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FC1A7201DFC6949007CB48D /* Keyboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,9 @@
 		5F76B1651DC70F38006DA550 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5F76B1681DC70F38006DA550 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5F76B16A1DC70F38006DA550 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5FC1A71D1DFC68D0007CB48D /* keyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keyboard.h; sourceTree = "<group>"; };
+		5FC1A71E1DFC68D0007CB48D /* keyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = keyboard.m; sourceTree = "<group>"; };
+		5FC1A7201DFC6949007CB48D /* Keyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Keyboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +67,10 @@
 				5F76B15D1DC70F38006DA550 /* AppDelegate.m */,
 				5F76B15F1DC70F38006DA550 /* ViewController.h */,
 				5F76B1601DC70F38006DA550 /* ViewController.m */,
+				5FC1A71D1DFC68D0007CB48D /* keyboard.h */,
+				5FC1A71E1DFC68D0007CB48D /* keyboard.m */,
 				5F76B1621DC70F38006DA550 /* Main.storyboard */,
+				5FC1A7201DFC6949007CB48D /* Keyboard.storyboard */,
 				5F76B1651DC70F38006DA550 /* Assets.xcassets */,
 				5F76B1671DC70F38006DA550 /* LaunchScreen.storyboard */,
 				5F76B16A1DC70F38006DA550 /* Info.plist */,
@@ -140,6 +148,7 @@
 				5F76B1691DC70F38006DA550 /* LaunchScreen.storyboard in Resources */,
 				5F76B1661DC70F38006DA550 /* Assets.xcassets in Resources */,
 				5F76B1641DC70F38006DA550 /* Main.storyboard in Resources */,
+				5FC1A7211DFC6949007CB48D /* Keyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +161,7 @@
 			files = (
 				5F76B1611DC70F38006DA550 /* ViewController.m in Sources */,
 				5F76B15E1DC70F38006DA550 /* AppDelegate.m in Sources */,
+				5FC1A71F1DFC68D0007CB48D /* keyboard.m in Sources */,
 				5F76B15B1DC70F38006DA550 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,6 +319,7 @@
 				5F76B16F1DC70F38006DA550 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

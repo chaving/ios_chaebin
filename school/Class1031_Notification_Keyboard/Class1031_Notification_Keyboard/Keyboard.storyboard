@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="stm-JB-7zD">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Keyboard-->
+        <scene sceneID="EY1-Lf-TCR">
+            <objects>
+                <viewController id="stm-JB-7zD" customClass="keyboard" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Zbv-Wh-dVx"/>
+                        <viewControllerLayoutGuide type="bottom" id="VNW-It-wXg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yNG-yv-1YV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="아이디" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZKD-go-byU">
+                                <rect key="frame" x="16" y="120" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sat-ng-Mif">
+                                <rect key="frame" x="16" y="160" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZKD-go-byU" firstAttribute="leading" secondItem="yNG-yv-1YV" secondAttribute="leadingMargin" id="BkK-UM-pdm"/>
+                            <constraint firstItem="Sat-ng-Mif" firstAttribute="leading" secondItem="yNG-yv-1YV" secondAttribute="leadingMargin" id="Rvf-5m-hbA"/>
+                            <constraint firstItem="Sat-ng-Mif" firstAttribute="top" secondItem="ZKD-go-byU" secondAttribute="bottom" constant="10" id="eYt-jJ-DKQ"/>
+                            <constraint firstItem="Sat-ng-Mif" firstAttribute="top" secondItem="ZKD-go-byU" secondAttribute="bottom" constant="10" id="g2S-BJ-kNG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ZKD-go-byU" secondAttribute="trailing" id="gJP-qC-GIx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Sat-ng-Mif" secondAttribute="trailing" id="jWm-xk-VQS"/>
+                            <constraint firstItem="ZKD-go-byU" firstAttribute="top" secondItem="Zbv-Wh-dVx" secondAttribute="bottom" constant="100" id="okb-D4-fEZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="idTextField" destination="ZKD-go-byU" id="jSa-nF-b1d"/>
+                        <outlet property="pwTextField" destination="Sat-ng-Mif" id="tlD-UA-f92"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H3b-gp-ao7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-439" y="32"/>
+        </scene>
+    </scenes>
+</document>

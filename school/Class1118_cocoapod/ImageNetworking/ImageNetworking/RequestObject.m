@@ -94,6 +94,9 @@ static NSString *JSONSuccessValue = @"success";
         NSString *notificationName = ImageListUpdateFailNotification;
         
         if (responseObject) {
+            
+            NSLog(@"%@", responseObject);
+            
             NSDictionary *dict = responseObject;
             
             
