@@ -1,7 +1,7 @@
 # iOS School Class
 
 - [Xcode & Class & Comment](https://github.com/chaving/ios_chaebin/tree/master/school/Class0919)
-- [Object & Quick Help & Naming](https://github.com/chaving/ios_chaebin/)
+- [Object & Quick Help & Naming](https://github.com/chaving/ios_chaebin/blob/master/school/Class0920/README.md)
 - [DataType & Format Specifier Polymorphism](https://github.com/chaving/ios_chaebin/tree/master/school/Class0921)
 - [SubClassing & Override & Infomation-Hiding](https://github.com/chaving/ios_chaebin/tree/master/school/Class0922)
 - [InitilizeMethod](https://github.com/chaving/ios_chaebin/tree/master/school/Class0923)
