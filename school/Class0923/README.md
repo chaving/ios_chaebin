@@ -1,4 +1,11 @@
-bjective-C 에서는 초기화 메서드를 직접 만들수 있다.
+###160923 강의 내용
+
+####초기화 메서드
+
+>객체를 생선한 후 곧바로 객체를 사용할 수 있도록 초기화 해 줄 수 있는 메서드
+
+- `초기화`란 메모리를 할당 받은 객체에 들어있는 쓰레기값을 정리하는 것이다.
+- Objective-C 에서는 초기화 메서드를 직접 만들수 있다.
 - 초기화 메서드의 이름에는 init이 반드시 들어가야 한다.
 - 가장 기본적인 초기화 메서드는 NSObject의 init메서드 이다.
 - 초기화 메서드는 마지막에 return nil 이 아닌 return self 를 하게 됨!
@@ -49,5 +56,6 @@ self.school = school;
 - NSString 은 NSObject를 상속받아서 만들어진 클래스.
 - NSString에도 NSObject 의 init 메서드를 재정의한 init 클래스 들이 많이있음.
 - NSString에서는 -(instancetype) initWithFormat:(NSString *)format을 많이 사용함.
+
 
 
