@@ -1,6 +1,6 @@
 ###1031 강의 내용
 
-####Precompiled Header(P	CH file)
+####Precompiled Header(PCH file)
 
 - 미리 컴파일된 헤더
 - 컴파일 시간 단축
