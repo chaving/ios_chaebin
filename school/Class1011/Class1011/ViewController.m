@@ -9,7 +9,7 @@
 #import "ViewController.h"
 
 
-@interface ViewController () <UIScrollViewDelegate>
+@interface ViewController () <UIScrollViewDelegate, UITextFieldDelegate>
 
 @property UILabel *displayLayer;
 @property UITextField *textFildeLayer;
