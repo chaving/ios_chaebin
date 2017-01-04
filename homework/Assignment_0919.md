@@ -44,7 +44,7 @@ ios 스쿨 임채빈
 ```
 
 ``` objectivec
-[Cat where:@"거실"];
+[Cat meetTo:@"거실"];
 ```
 >고양이가 강아지를 거실에서 만났습니다.
 
@@ -63,7 +63,7 @@ ios 스쿨 임채빈
 ```
 
 ``` objectivec
-[Dog where:@"거실"];
+[Dog meetTo:@"거실"];
 ```
 >강아지가 고양이를 거실에서 못 만났습니다.
 
