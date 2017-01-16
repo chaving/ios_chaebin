@@ -14,7 +14,7 @@
 - target check
 - build setting -> prefix header 검색 -> Precompile Prefix Header: YES -> Prifix Header 상대경로 지정 
 ```
-&(SRCROOT/$(PRODUCT_NAME)/PrefixHeader.pch
+$(SRCROOT)/$(PRODUCT_NAME)/PrefixHeader.pch
 ```
 
 
